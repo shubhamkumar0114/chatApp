@@ -18,11 +18,16 @@ export const register = async (data) => {
 
 // Login Api
 export const login = async (data) => {
-  const res = await API.post("/user/login", data, {
-    headers: {
-      "Content-Type": "application/json",
-    },
-  });
+  const res = await API.post(
+    "/user/login",
+    data,
+    { withCredentials: true },
+    {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }
+  );
   return res;
 };
 
@@ -67,7 +72,7 @@ export const handleSendMessage = async (selectedUser, message, token) => {
         Authorization: `Bearer ${token}`,
       },
     }
-  ); 
+  );
 };
 
 // Logout user frontent
@@ -75,7 +80,7 @@ export const handleLogoutUser = async () => {
   localStorage.removeItem("user");
   localStorage.removeItem("token");
   localStorage.removeItem("selectUser");
-  Cookies.remove("token")
+  Cookies.remove("token");
   toast.success("Logout Successfully ✔");
 };
 
@@ -99,11 +104,10 @@ export const handleResetPassword = async (password, token) => {
     {
       password,
     },
-    { 
+    {
       headers: {
         "Content-Type": "application/json",
       },
     }
   );
 };
-
