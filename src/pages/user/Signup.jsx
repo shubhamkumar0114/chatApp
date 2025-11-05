@@ -47,7 +47,7 @@ export default function Signup() {
       toast.success("Signup Successful ✅");
       setLoading(false);
     } catch (err) {
-      console.log(err.message);
+      console.log(err);
       toast.error("Invalid credentials ❌");
     }
   };
@@ -129,7 +129,6 @@ export default function Signup() {
           type="file"
           placeholder="image"
           onChange={onChangeImage}
-          required
           className="bg-transparent"
           style={{
             display: "block",
