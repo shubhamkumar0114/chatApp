@@ -41,14 +41,13 @@ export default function Signup() {
     try {
       setLoading(true);
       if (userInfo) {
-        console.log("pass");
         await register(userInfo);
       }
       navigate("/login");
       toast.success("Signup Successful ✅");
       setLoading(false);
     } catch (err) {
-      console.log(err);
+      console.log(err.message);
       toast.error("Invalid credentials ❌");
     }
   };

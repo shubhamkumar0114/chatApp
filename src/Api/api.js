@@ -2,7 +2,7 @@ import axios from "axios";
 import { toast } from "react-toastify";
 
 const API = axios.create({
-  baseURL: "https://backendchatapp-4a20.onrender.com",
+  baseURL: "https://backendchatapp-4a20.onrender.com/api",
   withCredentials: true,
 });
 
