@@ -1,0 +1,25 @@
+import React, { useContext, useState } from "react";
+import { AuthUserClick } from "../contextApi/Context";
+
+const SearchUser = () => {
+ 
+  return (
+    <div>
+      <div className=" flex items-center">
+        <input
+          type="text"
+          className="h-10 w-[100%] mr-2 pl-2 border rounded-md outline-none border-gray-300"
+          placeholder="Search.."
+        
+        />
+        <span
+          className=""
+        >
+          X
+        </span>
+      </div>
+    </div>
+  );
+};
+
+export default SearchUser;
