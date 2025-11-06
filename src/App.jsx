@@ -21,8 +21,8 @@ import Cookies from "js-cookie";
 
 function App() {
   // const loginToken = localStorage.getItem("token");
-  const token = Cookies.get("token");
-  if(!token){
+  const token = true; // Cookies.get("token");
+  if (!token) {
     localStorage.removeItem("token");
     localStorage.removeItem("user");
   }
@@ -36,12 +36,18 @@ function App() {
           <Route path="/" element={<AllUsers />} />
           <Route path="stories" element={token ? <Stories /> : <Login />} />
         </Route>
-        
+
         <Route path="/chat" element={token ? <Chat /> : <Login />} />
-        <Route path="/addfriend" element={token ? <AddNewFriend /> : <Login />}/>
+        <Route
+          path="/addfriend"
+          element={token ? <AddNewFriend /> : <Login />}
+        />
         <Route path="/chatmsg" element={token ? <ChatMsg /> : <Login />} />
         <Route path="/profile" element={token ? <Profile /> : <Login />} />
-        <Route path="/editprofile" element={token ? <EditProfile /> : <Login />}/>
+        <Route
+          path="/editprofile"
+          element={token ? <EditProfile /> : <Login />}
+        />
 
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />

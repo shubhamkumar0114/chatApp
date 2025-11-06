@@ -6,10 +6,10 @@ const Stories = () => {
   const { users } = useContext(AuthUserClick);
 
   return (
-    <div>
+    <div className="bg-white h-100">
       <div>{/* <TopNavBar headingName={"Stories"} /> */}</div>
 
-      <div className="p-3 ">
+      <div className="p-3">
         <div className="flex items-start flex-wrap gap-4">
           <div className="w-16 overflow-hidden rounded-full h-28 border border-gray-800 opacity-60">
             <input type="file" className="w-12 h-12 bg-gray-500 rounded-full" />

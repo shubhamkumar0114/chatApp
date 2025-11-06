@@ -54,8 +54,8 @@ export default function Signup() {
 
   return (
     <div
-      className="border p-4 rounded-md border-blue-400"
-      style={{ maxWidth: "300px", margin: "50px auto" }}
+      className=" p-4 h-screen rounded-md bg-white sm:w-full"
+      style={{ maxWidth: "300px", margin: "0px auto" }}
     >
       <h2 className="text-center font-semibold pb-4">Signup</h2>
       <form onSubmit={handleSubmit}>
@@ -65,14 +65,13 @@ export default function Signup() {
           value={name}
           onChange={(e) => setName(e.target.value)}
           required
-          className="bg-transparent"
+          className="bg-transparent  border border-red-200 outline-none"
           style={{
             display: "block",
             margin: "10px 0",
             padding: "8px",
             width: "100%",
             borderRadius: "4px",
-            border: "1px solid gray",
           }}
         />
         <input
@@ -81,21 +80,20 @@ export default function Signup() {
           value={username}
           onChange={(e) => setUsername(e.target.value)}
           required
-          className="bg-transparent"
+          className="bg-transparent border border-red-200 outline-none"
           style={{
             display: "block",
             margin: "10px 0",
             padding: "8px",
             width: "100%",
             borderRadius: "4px",
-            border: "1px solid gray",
           }}
         />
         <input
           type="email"
-          placeholder="Email"
+          placeholder="example@gmail.com"
           value={email}
-          className="bg-transparent"
+          className="bg-transparent border border-red-200 outline-none"
           onChange={(e) => setEmail(e.target.value)}
           required
           style={{
@@ -104,13 +102,12 @@ export default function Signup() {
             padding: "8px",
             width: "100%",
             borderRadius: "4px",
-            border: "1px solid gray",
           }}
         />
         <input
           type="password"
-          placeholder="Password"
-          className="bg-transparent"
+          placeholder="password"
+          className="bg-transparent border border-red-200 outline-none"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           required
@@ -121,22 +118,24 @@ export default function Signup() {
             padding: "8px",
             width: "100%",
             borderRadius: "4px",
-            border: "1px solid gray",
           }}
         />
+        <small className="text-[0.7rem] mt-[-16] text-red-400 leading-[-10]">
+          Eight or more characters, with at least one lowercase and one
+          uppercase letter.
+        </small>
         <input
           accept="image/*"
           type="file"
           placeholder="image"
           onChange={onChangeImage}
-          className="bg-transparent"
+          className="bg-transparent border border-red-200 outline-none"
           style={{
             display: "block",
             margin: "10px 0",
             padding: "8px",
             width: "100%",
             borderRadius: "4px",
-            border: "1px solid gray",
           }}
         />
 

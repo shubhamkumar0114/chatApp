@@ -32,13 +32,13 @@ export default function Login() {
 
   return (
     <div
-      className="border p-4 rounded-md border-blue-400"
-      style={{ maxWidth: "300px", margin: "50px auto" }}
+      className=" p-4 sm:w-full rounded-md bg-white h-screen"
+      style={{ maxWidth: "300px", margin: "0px auto" }}
     >
       <h2 className="text-center font-semibold pb-4">Login</h2>
       <form onSubmit={handleSubmit} className="">
         <div className="flex flex-col gap-y-6 ">
-          <label className="input validator bg-white">
+          <label className="input validator bg-white border border-red-400">
             <svg
               className="h-[1em] text-black opacity-50"
               xmlns="http://www.w3.org/2000/svg"
@@ -61,12 +61,12 @@ export default function Login() {
               onChange={(e) => setEmail(e.target.value)}
               placeholder="mail@site.com"
               required
-              className="bg-transparent "
+              className="bg-transparent"
             />
           </label>
           <div className="validator-hint hidden">Enter valid email address</div>
 
-          <label className="input validator bg-white">
+          <label className="input validator bg-white border border-red-400">
             <svg
               className="h-[1em] opacity-50"
               xmlns="http://www.w3.org/2000/svg"
@@ -86,7 +86,7 @@ export default function Login() {
             <input
               type="password"
               required
-              className="bg-transparent"
+              className="bg-transparent "
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               placeholder="Password"
@@ -102,7 +102,10 @@ export default function Login() {
             At least one uppercase letter
           </p>
         </div>
-
+        <small className="text-[0.7rem] text-red-400 leading-[-10]">
+          Eight or more characters, with at least one lowercase and one
+          uppercase letter.
+        </small>
         <div className="flex justify-between items-center py-2">
           <Link to={"/forgetpassword"}>
             <p className="text-blue-500 cursor-pointer">ForgetPassword?</p>

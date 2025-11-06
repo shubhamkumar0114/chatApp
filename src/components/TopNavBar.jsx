@@ -21,7 +21,7 @@ const TopNavBar = (props) => {
 
   return (
     <div>
-      <div className="flex justify-between items-center mb-2 shadow-sm text-gray-800 p-3">
+      <div className="flex justify-between bg-white items-center mb-0 border border-gray-300 text-gray-800 p-3">
         <div className="flex items-center  gap-x-3">
           {/* ------------------------------ */}
           <div className="flex items-center">

@@ -7,13 +7,13 @@ const AllUsers = () => {
   const { users } = useContext(AuthUserClick);
   const { selectedUser, setSelectedUser } = useContext(AuthUserClick);
   return (
-    <div>
-      <div>
-        <div className="p-2 ">
+    <div >
+      <div className="bg-white">
+        <div className="p-3 ">
           <div
             className="flex flex-col gap-y-4"
             style={{
-              minHeight: "65vh",
+              minHeight: "64vh",
               overflowY: "scroll",
             }}
           >

@@ -17,12 +17,15 @@ const BottomBtnSection = () => {
 
   return (
     <div>
-      <div className="flex justify-between items-center shadow-sm p-2 font-monospace">
+      <div className="flex justify-between border border-gray-300 bg-white items-center shadow-sm p-1 font-monospace">
         {butns.map((b) => (
-          <Link key={b?.id}
-          onClick={()=> setActive(b.id)}
+          <Link
+            key={b?.id}
+            onClick={() => setActive(b.id)}
             to={b.path}
-            className={`${active === b.id? "bg-zinc-300": ""} px-2 py-1 rounded-md flex flex-col justify-center items-center  hover:bg-zinc-300`}
+            className={`${
+              active === b.id ? "bg-zinc-300" : ""
+            } px-2 py-1 rounded-md flex flex-col justify-center items-center  hover:bg-zinc-300`}
           >
             <p>{b.btnIcon}</p>
             <button className="font-semibold text-sm">{b.btnName}</button>

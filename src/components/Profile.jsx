@@ -10,8 +10,8 @@ const Profile = () => {
   const [authUser] = useAuth();
 
   return (
-    <div className="h-screen">
-      <div className="px-4 bg-white py-2">
+    <div className="h-screen bg-white">
+      <div className="px-4 py-2">
         <div className="flex items-center gap-5">
           <Link to={"/"}>
             <FaArrowLeft className="text-gray-800" />
@@ -23,7 +23,7 @@ const Profile = () => {
       <div className="flex  m-2">
         <div className="bg-white w-full  p-4 pl-4 rounded-md flex flex-col justify-start items-start gap-2">
           <div className="avatar ">
-            <div className="ring-primary ring-offset-base-100 w-25 rounded-full ring-2 ring-offset-2">
+            <div className="ring-primary ring-offset-base-100 w-20 rounded-full ring-2 ring-offset-2">
               <Link>
                 <img
                   src={`${
@@ -55,11 +55,11 @@ const Profile = () => {
         </div>
       </div>
 
-      <div className="px-2 mt-4">
+      <div className="px-2 mt-12">
         <Link
           to={"/login"}
           onClick={handleLogoutUser}
-          className="px-3 py-1 bg-white text-gray-800 rounded-md font-semibold"
+          className="px-3 py-1 bg-red-400 text-white font-semibold"
         >
           Logout
         </Link>
