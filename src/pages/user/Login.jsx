@@ -38,7 +38,7 @@ export default function Login() {
       <h2 className="text-center font-semibold pb-4">Login</h2>
       <form onSubmit={handleSubmit} className="">
         <div className="flex flex-col gap-y-6 ">
-          <label className="input validator bg-white border border-red-400">
+          <label className="input w-full validator bg-white border border-red-400">
             <svg
               className="h-[1em] text-black opacity-50"
               xmlns="http://www.w3.org/2000/svg"
@@ -66,7 +66,7 @@ export default function Login() {
           </label>
           <div className="validator-hint hidden">Enter valid email address</div>
 
-          <label className="input validator bg-white border border-red-400">
+          <label className="input w-full validator bg-white border border-red-400">
             <svg
               className="h-[1em] opacity-50"
               xmlns="http://www.w3.org/2000/svg"
