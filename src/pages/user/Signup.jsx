@@ -93,7 +93,7 @@ export default function Signup() {
           type="email"
           placeholder="example@gmail.com"
           value={email}
-          className="bg-transparent border border-red-200 outline-none"
+          className="bg-white border border-red-200 outline-none"
           onChange={(e) => setEmail(e.target.value)}
           required
           style={{
@@ -107,7 +107,7 @@ export default function Signup() {
         <input
           type="password"
           placeholder="password"
-          className="bg-transparent border border-red-200 outline-none"
+          className="bg-white border border-red-200 outline-none"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           required
