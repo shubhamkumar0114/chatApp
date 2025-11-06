@@ -61,7 +61,7 @@ export default function Login() {
               onChange={(e) => setEmail(e.target.value)}
               placeholder="mail@site.com"
               required
-              className="bg-white"
+              className="bg-white w-full"
             />
           </label>
           <div className="validator-hint hidden">Enter valid email address</div>
@@ -86,7 +86,7 @@ export default function Login() {
             <input
               type="password"
               required
-              className=" bg-white"
+              className=" bg-white w-full"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               placeholder="Password"

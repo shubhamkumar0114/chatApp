@@ -65,7 +65,7 @@ export default function Signup() {
           value={name}
           onChange={(e) => setName(e.target.value)}
           required
-          className="bg-transparent  border border-red-200 outline-none"
+          className="bg-transparent w-full border border-red-200 outline-none"
           style={{
             display: "block",
             margin: "10px 0",
@@ -80,7 +80,7 @@ export default function Signup() {
           value={username}
           onChange={(e) => setUsername(e.target.value)}
           required
-          className="bg-transparent border border-red-200 outline-none"
+          className="bg-transparent w-full border border-red-200 outline-none"
           style={{
             display: "block",
             margin: "10px 0",
@@ -93,7 +93,7 @@ export default function Signup() {
           type="email"
           placeholder="example@gmail.com"
           value={email}
-          className="bg-white border border-red-200 outline-none"
+          className="bg-white border w-full border-red-200 outline-none"
           onChange={(e) => setEmail(e.target.value)}
           required
           style={{
@@ -107,7 +107,7 @@ export default function Signup() {
         <input
           type="password"
           placeholder="password"
-          className="bg-white border border-red-200 outline-none"
+          className="bg-white border w-full border-red-200 outline-none"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           required
@@ -129,7 +129,7 @@ export default function Signup() {
           type="file"
           placeholder="image"
           onChange={onChangeImage}
-          className="bg-transparent border border-red-200 outline-none"
+          className="bg-transparent border w-full border-red-200 outline-none"
           style={{
             display: "block",
             margin: "10px 0",
