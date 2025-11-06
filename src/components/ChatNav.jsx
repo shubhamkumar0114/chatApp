@@ -5,13 +5,11 @@ import { FaPhoneAlt } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { BsThreeDotsVertical } from "react-icons/bs";
 import { AuthUserClick } from "../contextApi/Context";
-import { SocketContext } from "../contextApi/Sockets";
 const ChatNav = () => {
   const { selectedUser } = useContext(AuthUserClick);
-  // const [onlineUsers, setOnlineUsers] = useContext(SocketContext);
-
+  console.log(selectedUser)
   return (
-    <div className="p-1 flex justify-between items-center z-50">
+    <div className="p-1 flex justify-between bg-green-300 items-center z-50">
       <div className="flex items-center gap-x-2">
         <Link to={"/"} onClick={() => localStorage.removeItem("selectUser")}>
           <FaArrowLeft />

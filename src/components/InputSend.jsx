@@ -24,14 +24,14 @@ const InputSend = () => {
   };
 
   return (
-    <div className="bg-zinc-700 py-1">
-      <div className="w-[98vw] z-50">
-        <form onSubmit={handleSubmit} className="flex ml-2">
+    <div className=" py-1 bg-white shadow-md px-1">
+      <div className="w-full z-50">
+        <form onSubmit={handleSubmit} className="flex ml-0">
           <input
             type="text"
             value={message}
             onChange={(e) => setMessage(e.target.value)}
-            className="w-[100%] bg-zinc-700 py-2 pl-2 outline-none rounded-md"
+            className="w-full py-2 pl-2 border border-gray-300 outline-none rounded-md"
             placeholder="Type Here...."
           />
           <button

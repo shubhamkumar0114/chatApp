@@ -55,15 +55,13 @@ const Chat = () => {
     chatScroll();
   }, [chat]);
   return (
-    <div className="">
-      <div className=" z-50 fixed top-0  right-0 left-0">
-        <ChatNav />
-      </div>
+    <div className=" h-[80vh]">
+     
       {chat.length !== 0 ? (
         <div
           ref={lastMsgRef}
-          className="px-2 scroll-smooth mb-14 mt-14"
-          style={{ minHeight: "80vh", overflowY: "scroll" }}
+          className="px-2 scroll-smooth  mt-1"
+          style={{ maxHeight: "80vh", overflowY: "scroll" }}
         >
           {chat?.map((msg, index) => (
             <div
@@ -75,13 +73,11 @@ const Chat = () => {
           ))}
         </div>
       ) : (
-        <div className="mt-40 flex justify-center">
+        <div className=" pt-30 flex justify-center">
           <NotChat />
         </div>
       )}
-      <div className="fixed bottom-0 right-0 left-0">
-        <InputSend />
-      </div>
+    
     </div>
   );
 };

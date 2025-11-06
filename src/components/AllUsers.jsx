@@ -2,55 +2,40 @@ import React, { use, useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthUserClick } from "../contextApi/Context";
 import AddBtn from "./AddBtn";
+import SearchUser from "./SearchUser";
+import RightChat from "./RightChat";
+import User from "./User";
 
 const AllUsers = () => {
   const { users } = useContext(AuthUserClick);
   const { selectedUser, setSelectedUser } = useContext(AuthUserClick);
   return (
-    <div >
-      <div className="bg-white">
-        <div className="p-3 ">
-          <div
-            className="flex flex-col gap-y-4"
-            style={{
-              minHeight: "64vh",
-              overflowY: "scroll",
-            }}
-          >
-            {users?.map((user) => (
-              <Link
-                to={`/chat`}
-                key={user?._id}
-                onClick={() => setSelectedUser(user)}
-                className={`hover:bg-zinc-700 p-1 flex items-center gap-x-3`}
-              >
-                <div className={`avatar  avatar-offline `}>
-                  <div className="w-12 border border-gray-300 opacity-90 rounded-full">
-                    <img
-                      src={
-                        user
-                          ? user?.image?.url
-                          : "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_640.png"
-                      }
-                    />
-                  </div>
+    <div>
+      <div className="bg-white  flex gap-4 p-0">
+        <div className=" w-full ">
+          <div className="p-3 space-y-2">
+            <div>
+              <SearchUser />
+            </div>
+            <div
+              className="flex flex-col shadow-sm gap-y-4"
+              style={{
+                minHeight: "72vh",
+                overflowY: "scroll",
+              }}
+            >
+              {users?.map((user) => (
+                <div onClick={()=> setSelectedUser(user)}>
+                  <User user={user} />
                 </div>
-                <div className="flex justify-between items-center w-full">
-                  <div className="flex flex-col gap-0">
-                    <h3 className=" text-[18px]">{user?.username}</h3>
-                    <small className="text-[12px]">{"last msg"}</small>
-                  </div>
-                  <div className="mr-4">
-                    {/* <small className="">
-                      just now
-                    </small> */}
-                  </div>
-                </div>
-              </Link>
-            ))}
+              ))}
+            </div>
+            {/* addfriend */}
+            <div className="md:hidden block">
+              <AddBtn />
+            </div>
+            <div>// logout button</div>
           </div>
-          {/* addfriend */}
-          <AddBtn />
         </div>
       </div>
     </div>

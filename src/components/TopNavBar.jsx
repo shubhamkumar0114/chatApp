@@ -21,7 +21,7 @@ const TopNavBar = (props) => {
 
   return (
     <div>
-      <div className="flex justify-between bg-white items-center mb-0 border border-gray-300 text-gray-800 p-3">
+      <div className="flex justify-between bg-white items-center mb-0 border border-gray-300 text-gray-800 p-2">
         <div className="flex items-center  gap-x-3">
           {/* ------------------------------ */}
           <div className="flex items-center">
@@ -49,7 +49,7 @@ const TopNavBar = (props) => {
         </div>
         <div className="flex items-center gap-x-3">
           <p className="cursor-pointer" onClick={handleClickSearch}>
-           {!search?  <IoSearch /> : <SearchUser />}
+          
           </p>
           <p>
             <DropDownMenu />

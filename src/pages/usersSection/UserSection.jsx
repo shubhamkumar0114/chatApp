@@ -11,11 +11,11 @@ const Layout = () => {
     <div>
       <div>
         <TopNavBar />
-        <div style={{ minHeight: "77vh" }}>
+        <div className="h-screen">
           <Outlet />
         </div>
       </div>
-      <div className="">
+      <div className="md:hidden block">
         <BottomBtnSection />
       </div>
     </div>

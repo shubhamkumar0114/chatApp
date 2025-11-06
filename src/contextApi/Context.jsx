@@ -8,9 +8,7 @@ export const AuthUserClick = createContext();
 const UserContext = ({ children }) => {
   const [users, setUsers] = useState([]);
   const [chat, setChat] = useState([]);
-  const [selectedUser, setSelectedUser] = useState(
-    JSON.parse(localStorage.getItem("selectUser"))
-  );
+  const [selectedUser, setSelectedUser] = useState();
 
   useEffect(() => {
     const getSelectedUser = () => {

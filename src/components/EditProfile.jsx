@@ -53,70 +53,69 @@ const EditProfile = () => {
     }
   };
   return (
-    <div
-      style={{ maxWidth: "400px", padding: "4px", margin: "0px auto" }}
-      className="flex flex-col justify-center h-screen items-center"
-    >
-      <div className="flex items-center justify-center gap-x-4 mb-4">
-        <Link to={"/profile"}>
-        <FaArrowLeft />
-        </Link>
-        <h2 className="">Update User</h2>
-      </div>
-      <form
-        onSubmit={handleSendFormData}
-        action=""
-        className="flex flex-col w-[100%] gap-y-4 border border-gray-500 p-4 rounded-md"
-      >
-        <input
-          type="text"
-          placeholder="name"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          style={{
-            display: "block",
-            margin: "10px 0",
-            padding: "8px",
-            width: "100%",
-            borderRadius: "4px",
-            border: "1px solid gray",
-          }}
-        />
-        <input
-          style={{
-            display: "block",
-            margin: "10px 0",
-            padding: "8px",
-            width: "100%",
-            borderRadius: "4px",
-            border: "1px solid gray",
-          }}
-          type="text"
-          placeholder="username"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-        />
-        <input
-          style={{
-            display: "block",
-            margin: "10px 0",
-            padding: "8px",
-            width: "100%",
-            borderRadius: "4px",
-            border: "1px solid gray",
-          }}
-          type="email"
-          placeholder="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
+    <div className="flex justify-center items-center bg-white">
+      <div className="flex flex-col justify-center h-screen w-[30vw] items-center">
+        <div className="flex items-center justify-center gap-x-4 mb-4">
+          <Link to={"/profile"}>
+            <FaArrowLeft />
+          </Link>
+          <h2 className="font-semibold">Update User</h2>
+        </div>
+        <form
+          onSubmit={handleSendFormData}
+          action=""
+          className="flex flex-col w-[100%] gap-y-4 border border-gray-500 p-4 rounded-md"
+        >
+          <input
+            type="text"
+            placeholder="name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            style={{
+              display: "block",
+              margin: "10px 0",
+              padding: "8px",
+              width: "100%",
+              borderRadius: "4px",
+              border: "1px solid gray",
+            }}
+          />
+          <input
+            style={{
+              display: "block",
+              margin: "10px 0",
+              padding: "8px",
+              width: "100%",
+              borderRadius: "4px",
+              border: "1px solid gray",
+            }}
+            type="text"
+            placeholder="username"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+          />
+          <input
+            style={{
+              display: "block",
+              margin: "10px 0",
+              padding: "8px",
+              width: "100%",
+              borderRadius: "4px",
+              border: "1px solid gray",
+            }}
+            type="email"
+            placeholder="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
 
-        <input
-          className="h-10 cursor-pointer bg-blue-600 pl-2 rounded-md outline-none w-full"
-          type="submit"
-          value={loading? <Loading/> : "Update"}
-        />
-      </form>
+          <input
+            className="h-10 text-white cursor-pointer bg-blue-600 pl-2 rounded-md outline-none w-full"
+            type="submit"
+            value={loading ? <Loading /> : "Update"}
+          />
+        </form>
+      </div>
     </div>
   );
 };

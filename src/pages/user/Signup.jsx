@@ -35,7 +35,7 @@ export default function Signup() {
     password,
     image,
   };
-  
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -53,112 +53,116 @@ export default function Signup() {
   };
 
   return (
-    <div
-      className=" p-4 h-screen w-full rounded-md bg-white sm:w-full"
-      // style={{ maxWidth: "300px", margin: "0px auto" }}
-    >
-      <h2 className="text-center font-semibold pb-4">Signup</h2>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          placeholder="name"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          required
-          className="bg-transparent w-full border border-red-200 outline-none"
-          style={{
-            display: "block",
-            margin: "10px 0",
-            padding: "8px",
-            width: "100%",
-            borderRadius: "4px",
-          }}
-        />
-        <input
-          type="text"
-          placeholder="Username"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-          required
-          className="bg-transparent w-full border border-red-200 outline-none"
-          style={{
-            display: "block",
-            margin: "10px 0",
-            padding: "8px",
-            width: "100%",
-            borderRadius: "4px",
-          }}
-        />
-        <input
-          type="email"
-          placeholder="example@gmail.com"
-          value={email}
-          className="bg-white border w-full border-red-200 outline-none"
-          onChange={(e) => setEmail(e.target.value)}
-          required
-          style={{
-            display: "block",
-            margin: "10px 0",
-            padding: "8px",
-            width: "100%",
-            borderRadius: "4px",
-          }}
-        />
-        <input
-          type="password"
-          placeholder="password"
-          className="bg-white border w-full border-red-200 outline-none"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-          pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
-          style={{
-            display: "block",
-            margin: "10px 0",
-            padding: "8px",
-            width: "100%",
-            borderRadius: "4px",
-          }}
-        />
-        <small className="text-[0.7rem] mt-[-16] text-red-400 leading-[-10]">
-          Eight or more characters, with at least one lowercase and one
-          uppercase letter.
-        </small>
-        <input
-          accept="image/*"
-          type="file"
-          placeholder="image"
-          onChange={onChangeImage}
-          className="bg-transparent border w-full border-red-200 outline-none"
-          style={{
-            display: "block",
-            margin: "10px 0",
-            padding: "8px",
-            width: "100%",
-            borderRadius: "4px",
-          }}
-        />
+    <div className=" p-4 h-screen md:flex flex-row-reverse gap-8 justify-center items-center w-full rounded-md bg-cyan-50 sm:w-full">
+      <div className="shadow-md p-4">
+        <h2 className="text-center font-semibold pb-4">Signup</h2>
+        <form onSubmit={handleSubmit}>
+          <input
+            type="text"
+            placeholder="name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            required
+            className="bg-transparent  w-full border border-red-200 outline-none"
+            style={{
+              display: "block",
+              margin: "10px 0",
+              padding: "8px",
+              width: "100%",
+              borderRadius: "4px",
+            }}
+          />
+          <input
+            type="text"
+            placeholder="Username"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+            required
+            className="bg-transparent w-full border border-red-200 outline-none"
+            style={{
+              display: "block",
+              margin: "10px 0",
+              padding: "8px",
+              width: "100%",
+              borderRadius: "4px",
+            }}
+          />
+          <input
+            type="email"
+            placeholder="example@gmail.com"
+            value={email}
+            className="bg-transparent border w-full border-red-200 outline-none"
+            onChange={(e) => setEmail(e.target.value)}
+            required
+            style={{
+              display: "block",
+              margin: "10px 0",
+              padding: "8px",
+              width: "100%",
+              borderRadius: "4px",
+            }}
+          />
+          <input
+            type="password"
+            placeholder="password"
+            className="bg-transparent placeholder:text-gray-400 border w-full border-red-200 outline-none"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+            pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+            style={{
+              display: "block",
+              margin: "10px 0",
+              padding: "8px",
+              width: "100%",
+              borderRadius: "4px",
+            }}
+          />
+          <small className="text-[0.7rem] mt-[-16] text-red-400 leading-[-10]">
+            Eight or more characters, with at least one lowercase and one
+            uppercase letter.
+          </small>
+          <input
+            accept="image/*"
+            type="file"
+            placeholder="image"
+            onChange={onChangeImage}
+            className="bg-transparent border w-full border-red-200 outline-none"
+            style={{
+              display: "block",
+              margin: "10px 0",
+              padding: "8px",
+              width: "100%",
+              borderRadius: "4px",
+            }}
+          />
 
-        <div className="border w-10 h-10 rounded-md border-gray-400">
-          <img src={imgPrev} className="w-full h-full" alt="previmage" />
-        </div>
+          <div className="border w-10 h-10 rounded-md border-gray-400">
+            <img src={imgPrev} className="w-full h-full" alt="previmage" />
+          </div>
 
-        <div className="flex justify-between items-center py-2 px-1">
-          <Link to={"/login"}>
-            <p className="text-blue-600 text-sm cursor-pointer">
-              already have account.?
-            </p>
-          </Link>
-          <Link to={"/login"} className="text-gray-800 cursor-pointer">
-            Login
-          </Link>
+          <div className="flex justify-between items-center py-2 px-1">
+            <Link to={"/login"}>
+              <p className="text-blue-600 text-sm cursor-pointer">
+                already have account.?
+              </p>
+            </Link>
+            <Link to={"/login"} className="text-gray-800 cursor-pointer">
+              Login
+            </Link>
+          </div>
+          <div className="flex justify-center items-center bg-blue-600 rounded-md text-white cursor-pointer">
+            <button type="submit" style={{ padding: "8px 16px" }}>
+              {loading ? <Loading /> : "Signup"}
+            </button>
+          </div>
+        </form>
+      </div>
+      <div>
+        <div className="hidden md:block">
+          <img src="../public/login_img.png" alt="" />
         </div>
-        <div className="flex justify-center items-center bg-blue-600 rounded-md text-white cursor-pointer">
-          <button type="submit" style={{ padding: "8px 16px" }}>
-            {loading ? <Loading /> : "Signup"}
-          </button>
-        </div>
-      </form>
+      </div>
     </div>
   );
 }

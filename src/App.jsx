@@ -7,7 +7,6 @@ import Chat from "./components/Chat";
 import ChatMsg from "./components/ChatMsg";
 import Stories from "./pages/Stories";
 import AddNewFriend from "./components/AddNewFriend";
-import Layout from "./pages/usersSection/UserSection";
 import AllUsers from "./components/AllUsers";
 import PageNotFound from "./components/PageNotFound";
 import Profile from "./components/Profile";
@@ -18,6 +17,8 @@ import EditProfile from "./components/EditProfile";
 import ForgetPassword from "./components/ForgetPassword";
 import ResetPassword from "./components/ResetPassword";
 import Cookies from "js-cookie";
+import RightChat from "./components/RightChat";
+import Main from "./pages/home/Main";
 
 function App() {
   // const loginToken = localStorage.getItem("token");
@@ -31,13 +32,9 @@ function App() {
     <>
       <ToastContainer position="top-right" autoClose={2000} />
       <Routes>
-        {/* <Route path="/" element={loginToken ? <HomeMain /> : <Login />} /> */}
-        <Route path="/" element={token ? <Layout /> : <Login />}>
-          <Route path="/" element={<AllUsers />} />
-          <Route path="stories" element={token ? <Stories /> : <Login />} />
-        </Route>
-
+        <Route path="/" element={token ? <Main /> : <Login />} />
         <Route path="/chat" element={token ? <Chat /> : <Login />} />
+        <Route path="/rightchat" element={token ? <RightChat /> : <Login />} />
         <Route
           path="/addfriend"
           element={token ? <AddNewFriend /> : <Login />}

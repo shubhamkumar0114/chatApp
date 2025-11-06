@@ -20,17 +20,17 @@ const ForgotPassword = () => {
       toast.error(error?.message);
     }
   };
-
+  // style={{ maxWidth: "300px", margin: "50px auto" }}
   return (
-    <div style={{ maxWidth: "300px", margin: "50px auto" }}>
-      <form onSubmit={handleSubmit}>
+    <div className="flex justify-center items-center pt-30">
+      <form onSubmit={handleSubmit} className="bg-white p-4">
         <Link className="text-xl font-semibold" to={"/login"}>
           <IoIosArrowRoundBack />
         </Link>
         <h2 className="text-gray-800">Forgot Password</h2>
-        <label className="input validator bg-white mt-4 mb-4">
+        <label className="input validator border border-gray-600 bg-white mt-4 mb-4">
           <svg
-            className="h-[1em] opacity-50"
+            className="h-[1em]"
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
           >
@@ -51,10 +51,13 @@ const ForgotPassword = () => {
             onChange={(e) => setEmail(e.target.value)}
             placeholder="mail@site.com"
             required
-            className="bg-transparent"
+            className="bg-transparent "
           />
         </label>
-        <button type="submit" className="btn bg-white border-none text-gray-800">
+        <button
+          type="submit"
+          className="btn bg-white border-none text-blue-800"
+        >
           {loading ? <Loading /> : "Send Reset Link"}
         </button>
       </form>

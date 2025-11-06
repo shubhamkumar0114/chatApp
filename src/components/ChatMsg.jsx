@@ -8,8 +8,8 @@ const ChatMsg = ({ msg }) => {
   const isSender = authUser?._id === msg?.senderId;
   const alignment = isSender ? "chat-end" : "chat-start";
   const bubbleColor = isSender
-    ? "bg-blue-600 text-white"
-    : "bg-gray-600 text-white";
+    ? "bg-blue-200 text-black"
+    : "bg-gray-300 text-black";
 
   return (
     <div className="px-2 z-0">

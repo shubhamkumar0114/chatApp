@@ -19,13 +19,12 @@ const ResetPassword = () => {
     toast.success("Password reset successfully!");
     setLoading(false);
   };
-
   return (
-    <div style={{ maxWidth: "300px", margin: "50px auto" }}>
-      <form onSubmit={handleSubmit}>
-        <h2>
+    <div className="flex justify-center items-center pt-20">
+      <form onSubmit={handleSubmit} className="bg-white p-2 w-[30vw]">
+        <h2 className="font-semibold">
           {" "}
-          <Link to={"/login"}>{"<-"}</Link> Reset Password
+          <Link to={"/login"} >{"<-"}</Link> Reset Password
         </h2>
         <input
           type="password"
@@ -44,7 +43,7 @@ const ResetPassword = () => {
             border: "1px solid gray",
           }}
         />
-        <button className="bg-white px-2 py-1  cursor-pointer" type="submit">
+        <button className="bg-white text-blue-600  px-2 py-1  cursor-pointer" type="submit">
           {loading ? <Loading /> : "Reset Password"}
         </button>
       </form>

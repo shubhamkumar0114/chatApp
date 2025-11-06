@@ -1,8 +1,8 @@
 import axios from "axios";
 import { toast } from "react-toastify";
-
+// https://backendchatapp-4a20.onrender.com
 const API = axios.create({
-  baseURL: "https://backendchatapp-4a20.onrender.com/api",
+  baseURL: "http://localhost:4001/api",
   withCredentials: true,
 });
 
@@ -21,7 +21,6 @@ export const login = async (data) => {
   const res = await API.post(
     "/user/login",
     data,
-    { withCredentials: true },
     {
       headers: {
         "Content-Type": "application/json",
