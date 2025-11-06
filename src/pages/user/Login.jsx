@@ -32,8 +32,8 @@ export default function Login() {
 
   return (
     <div
-      className=" p-4 sm:w-full rounded-md bg-white h-screen"
-      style={{ maxWidth: "300px", margin: "0px auto" }}
+      className=" p-4 w-full rounded-md bg-white h-screen"
+      // style={{ maxWidth: "300px", margin: "0px auto" }}
     >
       <h2 className="text-center font-semibold pb-4">Login</h2>
       <form onSubmit={handleSubmit} className="">

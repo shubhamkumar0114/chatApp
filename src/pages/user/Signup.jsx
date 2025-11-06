@@ -54,8 +54,8 @@ export default function Signup() {
 
   return (
     <div
-      className=" p-4 h-screen rounded-md bg-white sm:w-full"
-      style={{ maxWidth: "300px", margin: "0px auto" }}
+      className=" p-4 h-screen w-full rounded-md bg-white sm:w-full"
+      // style={{ maxWidth: "300px", margin: "0px auto" }}
     >
       <h2 className="text-center font-semibold pb-4">Signup</h2>
       <form onSubmit={handleSubmit}>
