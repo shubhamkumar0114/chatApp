@@ -21,7 +21,7 @@ import Cookies from "js-cookie";
 
 function App() {
   // const loginToken = localStorage.getItem("token");
-  const token = true; // Cookies.get("token");
+  const token = Cookies.get("token");
   if (!token) {
     localStorage.removeItem("token");
     localStorage.removeItem("user");
