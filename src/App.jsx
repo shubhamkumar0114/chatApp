@@ -33,7 +33,7 @@ function App() {
         <Route path="/rightchat" element={token ? <Right /> : <Login />} />
         <Route path="/chatmsg" element={token ? <ChatMsg /> : <Login />} />
 
-        <Route path="/login" element={<Login />} />
+        <Route path="/login" element={token? <MainSection/> : <Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/forgetpassword" element={<ForgetPassword />} />
         <Route path="/resetpassword/:token" element={<ResetPassword />} />
