@@ -4,6 +4,7 @@ import "./App.css";
 import { ToastContainer } from "react-toastify";
 import Cookies from "js-cookie";
 import "react-toastify/dist/ReactToastify.css";
+import { useAuth } from "./contextApi/useAuth";
 
 const MainSection = lazy(() => import("./pages/mains/MainSection"));
 const Login = lazy(() => import("./pages/user/Login"));
@@ -17,23 +18,19 @@ const VerifyOtp = lazy(() => import("./components/VerifyOtp"));
 const PageNotFound = lazy(() => import("./components/PageNotFound"));
 
 function App() {
+  const [authUser] = useAuth();
   // const loginToken = localStorage.getItem("token");
-  const token = Cookies.get("token");
-  if (!token) {
-    localStorage.removeItem("token");
-    localStorage.removeItem("user");
-  }
 
   return (
     <>
       <ToastContainer position="top-right" autoClose={2000} />
       <Routes>
-        <Route path="/" element={token ? <MainSection /> : <Login />} />
-        <Route path="/chat" element={token ? <Chat /> : <Login />} />
-        <Route path="/rightchat" element={token ? <Right /> : <Login />} />
-        <Route path="/chatmsg" element={token ? <ChatMsg /> : <Login />} />
+        <Route path="/" element={authUser ? <MainSection /> : <Login />} />
+        <Route path="/chat" element={<Chat />} />
+        <Route path="/rightchat" element={<Right />} />
+        <Route path="/chatmsg" element={<ChatMsg />} />
 
-        <Route path="/login" element={token? <MainSection/> : <Login />} />
+        <Route path="/login" element={authUser ? <MainSection /> : <Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/forgetpassword" element={<ForgetPassword />} />
         <Route path="/resetpassword/:token" element={<ResetPassword />} />
