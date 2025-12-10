@@ -21,14 +21,14 @@ export default function Login() {
     e.preventDefault();
     try {
       const res = await login(userInfo);
-      console.log(res)
+      // console.log(res)
       localStorage.setItem("user", JSON.stringify(res?.data.user));
       localStorage.setItem("token", res?.data.token); 
       
-      toast.success(res.data.user.error || "Login Successful ✅");
+      toast.success("Login Successful ✅");
       navigate("/");
     } catch (err) {
-      toast.error(err.message || "Invalid credentials ❌");
+      toast.error("Invalid credentials ❌");
     }
   };
 
