@@ -44,7 +44,7 @@ export const login = async (data) => {
       "Content-Type": "application/json",
     },
   });
-  return res;
+  return res.data;
 };
 
 // All Users Api

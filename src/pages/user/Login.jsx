@@ -22,8 +22,8 @@ export default function Login() {
     try {
       const res = await login(userInfo);
       // console.log(res)
-      localStorage.setItem("user", JSON.stringify(res?.data.user));
-      localStorage.setItem("token", res?.data.token); 
+      localStorage.setItem("user", JSON.stringify(res.user));
+      localStorage.setItem("token", res.token); 
       
       toast.success("Login Successful ✅");
       navigate("/");
