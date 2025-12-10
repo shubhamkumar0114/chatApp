@@ -3,7 +3,7 @@ import { toast } from "react-toastify";
 import Cookies from "js-cookie";
 // https://backendchatapp-4a20.onrender.com
 const API = axios.create({
-  baseURL: "http://localhost:4001/api",
+  baseURL: "https://chat-backend-api-r9xu.onrender.com/",
   withCredentials: true,
 });
 

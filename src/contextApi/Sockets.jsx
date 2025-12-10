@@ -22,7 +22,7 @@ const SocketsAuthProvider = ({ children }) => {
 
   useEffect(() => {
     if (authUser) {
-      const socket = io("http://localhost:4001", {
+      const socket = io("https://chat-backend-api-r9xu.onrender.com", {
         query: {
           userId: authUser?._id,
         },
