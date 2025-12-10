@@ -1,5 +1,6 @@
 import axios from "axios";
 import { toast } from "react-toastify";
+import Cookies from "js-cookie";
 // https://backendchatapp-4a20.onrender.com
 const API = axios.create({
   baseURL: "http://localhost:4001/api",
@@ -16,17 +17,32 @@ export const register = async (data) => {
   });
 };
 
+// Send otp
+export const handleSendOtp = async (number) => {
+  try {
+    const res = await API.post(
+      "/user/sendotp",
+      { phone: number },
+      {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
+    return res.data;
+  } catch (error) {
+    toast.error(error?.response?.data?.error)
+    return
+  }
+};
+
 // Login Api
 export const login = async (data) => {
-  const res = await API.post(
-    "/user/login",
-    data,
-    {
-      headers: {
-        "Content-Type": "application/json",
-      },
-    }
-  );
+  const res = await API.post("/user/login", data, {
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
   return res;
 };
 
@@ -56,22 +72,20 @@ export const handleUpdateUser = async (authUser, formData) => {
   const res = await API.put(`/user/updateuser/${authUser?._id}`, formData, {
     Headers: {
       "Content-Type": "application/json",
+      "Content-Type": "multipart/form-data",
     },
   });
   return res;
 };
 
 // SendMessage Api
-export const handleSendMessage = async (selectedUser, message, token) => {
-  await API.post(
-    `/message/sender/${selectedUser?._id}`,
-    { message },
-    {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    }
-  );
+export const handleSendMessage = async (selectedUser, formData, token) => {
+  return await API.post(`/message/sender/${selectedUser._id}`, formData, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+      "Content-Type": "multipart/form-data",
+    },
+  });
 };
 
 // Logout user frontent
@@ -110,3 +124,17 @@ export const handleResetPassword = async (password, token) => {
     }
   );
 };
+
+// export const handleUploadFile = async (file , selectedUser , token) => {
+//   console.log(file);
+//   try {
+//     const res = await API.post(`/message/upload/${selectedUser?._id}`, file, {
+//       headers: {
+//         "Content-Type": "multipart/form-data", // VERY IMPORTANT
+//         Authorization: `Bearer ${token}`,
+//       },
+//     });
+//   } catch (error) {
+//     console.log(error);
+//   }
+// };

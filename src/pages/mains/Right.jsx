@@ -1,0 +1,59 @@
+import React, { useContext, useState } from "react";
+import ChatNav from "../../components/ChatNav";
+import Chat from "../../components/Chat";
+import InputSend from "../../components/InputSend";
+import { AuthUserClick } from "../../contextApi/Context";
+import SelectedUserProfile from "../../components/SelectedUserProfile";
+import whatsapp from "../../../public/whatsapps.png";
+import { ThemeContext } from "../../contextApi/Theme";
+const Right = () => {
+  const { selectedUser, setSelectedUser } = useContext(AuthUserClick);
+  const { theme, setTheme } = useContext(ThemeContext);
+  const [box, setBox] = useState(false);
+
+  const handleProfile = () => {
+    setBox(!box);
+  };
+
+  return (
+    <div
+      className={`h-screen chat-right-bg ${
+        theme
+          ? "bg-zinc-900 border-l border-zinc-700"
+          : "bg-white text-gray-950 border-l border-gray-300"
+      }`}
+    >
+      {selectedUser ? (
+        <>
+          <div className={`${box ? "w-[66%]" : "w-[100%]"} h-[100%] `}>
+            <div>
+              <ChatNav handleProfile={handleProfile} />
+            </div>
+            <div>
+              <Chat />
+            </div>
+            <div className="px-4 py-2">
+              <InputSend />
+            </div>
+          </div>
+          <div>
+            <SelectedUserProfile selectedUser={selectedUser} box={box} />
+          </div>
+        </>
+      ) : (
+        <div className="flex justify-center no-select-conversation items-center ">
+          <div className="no-selected-text">
+            <img
+              src={whatsapp}
+              className={`${!theme ? "shadow shadow-zinc-600" : ""} w-[35vw] `}
+              alt=""
+            />
+            <p>No Selected Conversation</p>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+};
+
+export default Right;

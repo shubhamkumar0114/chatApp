@@ -22,13 +22,13 @@ const ForgotPassword = () => {
   };
   // style={{ maxWidth: "300px", margin: "50px auto" }}
   return (
-    <div className="flex justify-center items-center pt-30">
-      <form onSubmit={handleSubmit} className="bg-white p-4">
+    <div className="flex justify-center bg-emerald-200 items-center pt-30">
+      <form onSubmit={handleSubmit} className="bg-white p-4 rounded-lg">
         <Link className="text-xl font-semibold" to={"/login"}>
           <IoIosArrowRoundBack />
         </Link>
-        <h2 className="text-gray-800">Forgot Password</h2>
-        <label className="input validator border border-gray-600 bg-white mt-4 mb-4">
+        <h2 className="text-blue-800 font-medium">Forgot Password</h2>
+        <label className="input validator border border-gray-400 bg-white mt-4 mb-4">
           <svg
             className="h-[1em]"
             xmlns="http://www.w3.org/2000/svg"

@@ -1,39 +1,57 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { FaArrowLeft } from "react-icons/fa6";
 import { FaVideo } from "react-icons/fa";
 import { FaPhoneAlt } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { BsThreeDotsVertical } from "react-icons/bs";
 import { AuthUserClick } from "../contextApi/Context";
-const ChatNav = () => {
+import { SocketContext } from "../contextApi/Sockets";
+import { ThemeContext } from "../contextApi/Theme";
+
+const ChatNav = ({ handleProfile }) => {
+  const { theme, setTheme } = useContext(ThemeContext);
+  const [chat, setChat, online, sockets, typing, setIsTyping] =
+    useContext(SocketContext);
   const { selectedUser } = useContext(AuthUserClick);
-  console.log(selectedUser)
+  const isOnlie = online.includes(selectedUser?._id);
+
   return (
-    <div className="p-1 flex justify-between bg-green-300 items-center z-50">
-      <div className="flex items-center gap-x-2">
-        <Link to={"/"} onClick={() => localStorage.removeItem("selectUser")}>
-          <FaArrowLeft />
-        </Link>
-        <div className="flex items-center gap-x-1">
+    <div
+      className={` chat-nav ${
+        theme ? "bg-zinc-900 text-gray-100" : "bg-white text-gray-950"
+      }`}
+    >
+      <div className="flex items-center gap-x-6 ">
+        <div className="flex items-center gap-x-4 relative">
           <img
-            src="https://img.daisyui.com/images/profile/demo/gordon@192.webp"
-            className="w-8 h-8 border rounded-full"
+            src={selectedUser?.image.url}
+            className="w-10 h-10  rounded-full"
             alt=""
           />
-          <div className="flex flex-col gap-0">
-            <h2>{selectedUser ? selectedUser?.username : "Username"}</h2>
-            <span className="text-[10px]">Active</span>
+          <span
+            className={`avatar ${
+              isOnlie ? "avatar-online" : null
+            } absolute w-16 h-16 top-[32px] left-[-18px]`}
+          ></span>
+          <div className="flex cursor-pointer flex-col" onClick={handleProfile}>
+            <h2 className="text-[1.1rem]">
+              {selectedUser ? selectedUser?.name : "Username"}
+            </h2>
+
+            <span className="online-status">
+              {typing ? "type.." : isOnlie ? "online" : "offline"}
+            </span>
           </div>
         </div>
       </div>
-      <div className="flex items-center gap-x-4">
+      <div className="flex items-center gap-x-8 ">
         <Link>
           <FaVideo />
         </Link>
         <Link>
           <FaPhoneAlt />
         </Link>
-        <Link>
+        <Link onClick={handleProfile} className="text-[1.2rem]">
           {" "}
           <BsThreeDotsVertical />{" "}
         </Link>

@@ -1,13 +1,15 @@
-import React, { useContext, useState } from "react";
-import { AuthUserClick } from "../contextApi/Context";
+import React, {useContext } from "react";
+import {AuthUserClick} from "../contextApi/Context"
 
-const SearchUser = () => {
+const SearchUser = ({ setSearch }) => {
   return (
     <div>
-      <div className="bg-white rounded-sm">
+      <div className="bg-transparent rounded-sm w-full searchUser">
         <input
           type="text"
-          className="h-10 w-[100%] mr-2 pl-2 border rounded-md outline-none border-gray-300"
+          // value={searchTerm}
+          onChange={(e) => setSearch(e.target.value)}
+          className="serach-input"
           placeholder="Search user.."
         />
       </div>

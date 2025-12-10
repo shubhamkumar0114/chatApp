@@ -1,40 +1,57 @@
-import React, { use, useContext } from "react";
-import { Link } from "react-router-dom";
+import React, { useContext, useState } from "react";
 import { AuthUserClick } from "../contextApi/Context";
-import AddBtn from "./AddBtn";
+
 import SearchUser from "./SearchUser";
-import RightChat from "./RightChat";
 import User from "./User";
+import LeftTopNav from "./LeftTopNav";
+import { ThemeContext } from "../contextApi/Theme";
 
 const AllUsers = () => {
+  const [search, setSearch] = useState("");
+
   const { users } = useContext(AuthUserClick);
   const { selectedUser, setSelectedUser } = useContext(AuthUserClick);
+  const { theme, setTheme } = useContext(ThemeContext);
+  // const [chat] = useContext(SocketContext);
+
+  const filterUser = users?.filter(
+    (user) =>
+      user?.name && user.name.toLowerCase().includes(search.toLowerCase())
+  );
+
   return (
-    <div>
-      <div className="bg-white  flex gap-4 p-0">
+    <div
+      className={`${
+        theme ? "bg-transparent text-gray-100" : "bg-white text-gray-950"
+      }`}
+    >
+      <div className={` main-user-section`}>
         <div className=" w-full ">
-          <div className="p-3 space-y-2">
+          <div>
+            <LeftTopNav />
             <div>
-              <SearchUser />
+              <SearchUser setSearch={setSearch} />
             </div>
+            <h1>Chats</h1>
             <div
-              className="flex flex-col shadow-sm gap-y-4"
+              className="user-section"
               style={{
-                minHeight: "72vh",
+                height: "66vh",
                 overflowY: "scroll",
               }}
             >
-              {users?.map((user) => (
-                <div onClick={()=> setSelectedUser(user)}>
+              {filterUser?.map((user) => (
+                <div
+                  key={user?._id}
+                  className={`${
+                    selectedUser?._id === user._id ? "selected-user" : ""
+                  } users`}
+                  onClick={() => setSelectedUser(user)}
+                >
                   <User user={user} />
                 </div>
               ))}
             </div>
-            {/* addfriend */}
-            <div className="md:hidden block">
-              <AddBtn />
-            </div>
-            <div>// logout button</div>
           </div>
         </div>
       </div>

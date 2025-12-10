@@ -9,6 +9,7 @@ const UserContext = ({ children }) => {
   const [users, setUsers] = useState([]);
   const [chat, setChat] = useState([]);
   const [selectedUser, setSelectedUser] = useState();
+  const [searchTerm , setSearchTerm] = useState();
 
   useEffect(() => {
     const getSelectedUser = () => {
@@ -37,7 +38,8 @@ const UserContext = ({ children }) => {
         setSelectedUser,
         chat,
         setChat,
-      
+        searchTerm,
+        setSearchTerm,
       }}
     >
       {children}

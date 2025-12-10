@@ -1,3 +1,539 @@
 @import "tailwindcss";
 @plugin "daisyui";
 
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+:root {
+    --bg-color: #000000e7;
+    --primary-color: #F5FFFA;
+    --color: #ededed;
+    --bg-hover: #ada9a91e;
+}
+
+.left {
+    max-width: 60%;
+    margin-left: auto;
+    padding: 4px 8px;
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+    word-break: break-word;
+    margin-bottom: 8px;
+    font-weight: 400;
+    overflow: hidden;
+}
+
+.right {
+    max-width: 60%;
+    width: fit-content;
+    display: flex;
+    border-radius: 10px;
+    word-break: break-word;
+    gap: 4px;
+    margin-bottom: 8px;
+    padding: 4px 8px;
+    overflow: hidden;
+}
+
+.chat-images {
+    background: url("https://c4.wallpaperflare.com/wallpaper/639/699/747/emoticon-charms-bw-wallpaper-preview.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+/* @keyframes login {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+} */
+
+.move:hover {
+    transform: rotateY(360deg);
+    animation-duration: 4.0s;
+    animation-delay: 0.3s;
+    animation-name: login;
+}
+
+
+
+.mains {
+    display: grid;
+    /* width: 1300px; */
+    grid-template-columns: 36vw 64vw;
+    height: calc(100vh - 2vh);
+    color: var(--primary-color);
+    position: relative;
+}
+
+
+
+@keyframes profile {
+    0% {
+        right: -100%;
+    }
+
+    100% {
+        right: 0;
+    }
+}
+
+.profile-move {
+    position: absolute;
+    top: 0px;
+    padding: 16px 16px;
+    z-index: 9999;
+    right: 0;
+    animation-name: profile;
+    transition: all ease-in 0.5s;
+    overflow: hidden;
+}
+
+.left-top-nav {
+    position: relative;
+    padding: 5px 2px;
+}
+
+.searchUser {
+    padding: 10px 0;
+}
+
+.flexs {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.flexs h3 {
+    font-size: 18px;
+}
+
+.flexs small {
+    font-size: 15px;
+}
+
+.users {
+    padding: 8px 12px;
+}
+
+.users:hover {
+    background-color: var(--bg-hover);
+    border-radius: 8px;
+}
+
+.serach-input {
+    padding: 10px 18px;
+    border: none;
+    outline: none;
+    border: 1px solid rgba(128, 128, 128, 0.301);
+    border-radius: 24px;
+    width: 100%;
+}
+
+.user-section {
+    width: 28vw;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 0px 8px;
+}
+
+.user-section h3 {
+    font-weight: 500;
+}
+
+.main-user-section {
+    padding: 0px 12px;
+    /* border-bottom: 1px solid rgba(128, 128, 128, 0.253); */
+}
+
+.main-user-section h1 {
+    margin-bottom: 12px;
+    font-family: sans-serif;
+    font-weight: 500;
+    letter-spacing: 1px;
+    font-size: 18px;
+}
+
+@keyframes profiles {
+    0% {
+        left: -100%;
+    }
+
+    100% {
+        left: 0;
+    }
+}
+
+.login-profile {
+    position: absolute;
+    padding: 8px 12px;
+    left: -4px;
+    top: 0;
+    color: #fff;
+    width: 380px;
+    margin-left: 4px;
+    margin-top: 4px;
+    height: 560px;
+    z-index: 9999;
+    animation-name: profiles;
+    animation-duration: 1s;
+}
+
+
+.main-grid {
+    display: grid;
+    height: 100vh;
+    grid-template-columns: 1fr auto;
+}
+
+.input-section {
+    border-radius: 26px;
+    padding: 4px 10px;
+    margin-left: 8px;
+    margin-right: 34px;
+    border-top: 0.4px solid rgba(0, 0, 0, 0.219)
+}
+
+.file-inputs {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.input-msg {
+    padding: 8px 6px;
+    outline: none;
+    border: none;
+}
+
+
+.file-inputs label h1 {
+    font-size: 26px;
+    margin-left: 2px;
+    padding: 0px 12px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.send-btn {
+    padding: 16px;
+    cursor: pointer;
+    border-radius: 50%;
+    font-size: 19px;
+}
+
+.loading-btn {
+    width: 29px;
+    height: 24px;
+}
+
+
+.left-sidebar {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 14px;
+    /* border-right: 0.3px solid rgba(245, 222, 179, 0.685); */
+}
+
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    border-right: 0.4px solid gray;
+    padding-right: 8px;
+    padding-bottom: 20px;
+}
+
+.sub-sidebar {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 18px;
+    margin-top: 8px;
+}
+
+.side-pro-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.img {
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+
+}
+
+.setting {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+}
+
+.setting-icon-section {
+    width: 24px;
+    height: 24px;
+}
+
+.setting-icon {
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+.conversation {
+    display: flex;
+    flex-direction: column;
+    height: 78vh;
+    padding: 10px 25px;
+}
+
+.no-conversation {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 32vh;
+}
+
+.chat-nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 6px 16px;
+    box-shadow: 2px 0px 1px 1px rgba(128, 128, 128, 0.199);
+    z-index: 9999;
+    overflow: hidden;
+}
+
+.online-status {
+    font-size: 14px;
+}
+
+.profile {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    padding: 8px 24px;
+}
+
+.pro-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-content {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    gap: 16px;
+    padding: 6px;
+    border-bottom: 0.4px solid rgba(161, 161, 161, 0.63);
+}
+
+.profile-text {
+    margin-bottom: 16px;
+    letter-spacing: 1px;
+}
+
+
+
+.logout {
+    margin-top: 8px;
+    padding: 4px 0px;
+    border-radius: 6px;
+}
+
+.logout-btn {
+    padding: 8ch 12px;
+    font-size: 18px;
+}
+
+.msg {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+    letter-spacing: 0.4px;
+}
+
+.msg-time {
+    font-size: 12px;
+}
+
+.no-select-conversation {
+    height: 85vh;
+    color: #F5FFFA;
+}
+
+.no-selected-text {
+    padding: 4px 12px;
+    border-radius: 6px;
+}
+
+.no-selected-text p {
+    font-size: 17px;
+    text-align: center;
+}
+
+.login {
+    padding: 4px 12px;
+}
+
+.form {
+    padding: 6px 12px;
+}
+
+.login-input {
+    padding: 0px 4px;
+}
+
+.login-heading {
+    margin-bottom: 8px;
+}
+
+.input-box {
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    font-size: 23px;
+    outline: none;
+}
+
+.verify-otp {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.otp {
+    padding: 24px 32px;
+    background-color: #ffffff46;
+    border-radius: 6px;
+    box-shadow: 0px 0px 0.3px 0.5px rgba(0, 0, 0, 0.288);
+}
+
+.otp-btn {
+    background-color: rgba(0, 0, 255, 0.678);
+    color: #fff;
+    padding: 0px 8px;
+    border-radius: 6px;
+    font-weight: 500;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    font-size: 14px;
+}
+
+.heading {
+    font-weight: 600;
+    color: rgba(53, 51, 51, 0.712);
+    margin-bottom: 8px;
+    font-size: 18px;
+}
+
+.common {
+    padding: 6px 18px;
+    width: 100%;
+}
+
+.text-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.input-profile {
+    height: 30px;
+    width: 18vw;
+    border: none;
+    outline: none;
+    border-bottom: 0.3px solid rgba(128, 128, 128, 0.925);
+
+}
+
+.selected-user {
+    border-radius: 6px;
+}
+
+.selected-user-content {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-top: 53px;
+}
+
+.selected-user-img {
+    margin: 45px 0px;
+}
+
+.message {
+    padding: 0px 10px;
+
+}
+
+.resend-btn {
+    color: blue;
+    margin-top: 12px;
+    font-size: 14px;
+}
+
+.resend-btn span:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.pro-image {
+    position: relative;
+}
+
+.camera-icon {
+    position: absolute;
+    bottom: 0px;
+    right: 2px;
+    font-size: 19px;
+    color: #000;
+    background-color: white;
+    padding: 6px;
+    border-radius: 16px;
+    cursor: pointer;
+}
+
+/* **************Setting-section***************** */
+.search-setting {
+    padding: 4px 16px;
+    margin-top: 8px;
+}
+
+.top-setting:hover {
+    transition: all 0.2s ease-in-out;
+    background-color: rgba(128, 128, 128, 0.11);
+    border-radius: 6px;
+}
+
+.settings {
+    padding: 12px 10px;
+    border-radius: 6px;
+}

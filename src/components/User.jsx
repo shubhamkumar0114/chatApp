@@ -1,16 +1,18 @@
-import React from 'react'
-import { Link } from 'react-router-dom';
+import React, { useContext, useState } from "react";
+import { Link } from "react-router-dom";
+import { SocketContext } from "../contextApi/Sockets.jsx";
 
-const User = ({user}) => {
+const User = ({ user}) => {
+ 
+  const [chat, setChat, online, sockets] = useContext(SocketContext);
+  const isOnlie = online.includes(user?._id);
+
   return (
     <div>
       <div>
-        <Link
-         
-          className={`hover:bg-zinc-200 p-1 flex items-center gap-x-3`}
-        >
-          <div className={`avatar  avatar-offline `}>
-            <div className="w-12 border border-gray-300 opacity-90 rounded-full">
+        <Link className={`flexs`}>
+          <div className={`avatar ${isOnlie ? "avatar-online" : null} `}>
+            <div className="w-12  rounded-full">
               <img
                 src={
                   user
@@ -22,19 +24,18 @@ const User = ({user}) => {
           </div>
           <div className="flex justify-between items-center w-full">
             <div className="flex flex-col gap-0">
-              <h3 className=" text-[18px]">{user?.username}</h3>
-              <small className="text-[12px]">{user?.email}</small>
+              <h3 className="">{user?.name}</h3>
+              <small className="">{"msg"}</small>
             </div>
-            <div className="mr-4">
-              {/* <small className="">
-                      just now
-                    </small> */}
+            <div className="text-[0.7rem] ">
+              <p>2</p>
+              <p>just now</p>
             </div>
           </div>
         </Link>
       </div>
     </div>
   );
-}
+};
 
-export default User
+export default User;
