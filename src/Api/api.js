@@ -10,6 +10,7 @@ const API = axios.create({
 // Register Api
 export const register = async (data) => {
   await API.post("/user/register", data, {
+    withCredentials: true,
     headers: {
       "Content-Type": "multipart/form-data",
     },
@@ -38,6 +39,7 @@ export const handleSendOtp = async (number) => {
 // Login Api
 export const login = async (data) => {
   const res = await API.post("/user/login", data, {
+    withCredentials: true,
     headers: {
       "Content-Type": "application/json",
     },
@@ -48,6 +50,7 @@ export const login = async (data) => {
 // All Users Api
 export const handleGetAllUsers = async (token) => {
   const res = await API.get(`/user/allusers`, {
+    withCredentials: true,
     headers: {
       // "Content-Type": "application/json",
       Authorization: `Bearer ${token}`,
@@ -59,6 +62,7 @@ export const handleGetAllUsers = async (token) => {
 // All Message Api
 export const handleGetAllMessage = async (token, selectedUser) => {
   const res = await API.get(`/message/reciver/${selectedUser?._id}`, {
+    withCredentials: true,
     headers: {
       Authorization: `Bearer ${token}`,
     },
@@ -69,6 +73,7 @@ export const handleGetAllMessage = async (token, selectedUser) => {
 // Update User
 export const handleUpdateUser = async (authUser, formData) => {
   const res = await API.put(`/user/updateuser/${authUser?._id}`, formData, {
+    withCredentials: true,
     Headers: {
       "Content-Type": "application/json",
       "Content-Type": "multipart/form-data",
@@ -80,6 +85,7 @@ export const handleUpdateUser = async (authUser, formData) => {
 // SendMessage Api
 export const handleSendMessage = async (selectedUser, formData, token) => {
   return await API.post(`/message/sender/${selectedUser._id}`, formData, {
+    withCredentials: true,
     headers: {
       Authorization: `Bearer ${token}`,
       "Content-Type": "multipart/form-data",
@@ -102,6 +108,7 @@ export const handleForgetPassword = async (email) => {
     "/user/forgotpassword",
     { email },
     {
+      withCredentials: true,
       headers: {
         "Content-Type": "application/json",
       },
@@ -117,6 +124,7 @@ export const handleResetPassword = async (password, token) => {
       password,
     },
     {
+      withCredentials: true,
       headers: {
         "Content-Type": "application/json",
       },
