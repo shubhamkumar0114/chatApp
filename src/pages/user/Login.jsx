@@ -22,11 +22,11 @@ export default function Login() {
     try {
       const res = await login(userInfo);
       console.log(res)
-      navigate("/");
       localStorage.setItem("user", JSON.stringify(res?.data.user));
-      localStorage.setItem("token", res?.data.token); // token ko localStorage me store karo
-
+      localStorage.setItem("token", res?.data.token); 
+      
       toast.success(res.data.user.error || "Login Successful ✅");
+      navigate("/");
     } catch (err) {
       toast.error(err.message || "Invalid credentials ❌");
     }
