@@ -2,7 +2,7 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import Cookies from "js-cookie";
 const API = axios.create({
-  baseURL: "https://chat-backend-api-r9xu.onrender.com",
+  baseURL: "https://chat-backend-api-r9xu.onrender.com/api",
   withCredentials: true,
 });
 
