@@ -23,7 +23,6 @@ export default function Login() {
       const res = await login(userInfo);
       console.log(res)
       navigate("/");
-      window.location.href = `${window.location.origin}/`;
       localStorage.setItem("user", JSON.stringify(res?.data.user));
       localStorage.setItem("token", res?.data.token); // token ko localStorage me store karo
 
