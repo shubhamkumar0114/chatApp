@@ -47,7 +47,7 @@ const VerifyOtp = () => {
     try {
       const verifyOtp = async () => {
         const res = await axios.post(
-          "http://localhost:4001/api/user/verifyotp",
+          "https://chat-backend-api-r9xu.onrender.com/api/user/verifyotp",
           { otp: finalOtp },
           {
             withCredentials: true,
