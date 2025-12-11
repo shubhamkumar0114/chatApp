@@ -59,8 +59,8 @@ const Profile = () => {
 
   return (
     <div
-      style={{ height: "95vh", width: "30vw", overflowY: "scroll" }}
-      className={`${theme ? "bg-zinc-900" : "bg-white text-gray-950"} profile `}
+      style={{ height: "100%", width: "100%", overflowY: "scroll" }}
+      className={`${theme ? "bg-zinc-950" : "bg-white text-gray-950"} profile `}
     >
       <div className="px-4 py-2">
         <div className="flex items-center gap-2 px-4">

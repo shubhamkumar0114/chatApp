@@ -16,10 +16,6 @@ const SocketsAuthProvider = ({ children }) => {
   const [online, setOnline] = useState([]);
   const [typing, setIsTyping] = useState();
 
-  // useEffect(() => {
-  //   console.log("Online users updated:", online);
-  // }, [online]);
-
   useEffect(() => {
     if (authUser) {
       const socket = io("https://chat-backend-api-r9xu.onrender.com", {
@@ -66,7 +62,7 @@ const SocketsAuthProvider = ({ children }) => {
     const handleMessage = (data) => {
       setChat((prev) => [...prev, data]);
     };
- 
+
     // 📨 Server se message aane par
     socket.on("connect", onConnect);
     socket.on("message", handleMessage);
@@ -77,8 +73,6 @@ const SocketsAuthProvider = ({ children }) => {
       socket.off("message", handleMessage);
     };
   }, [setChat]);
-
- 
 
   return (
     <SocketContext.Provider

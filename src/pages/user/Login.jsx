@@ -20,8 +20,8 @@ export default function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
+      
       const res = await login(userInfo);
-      // console.log(res)
       localStorage.setItem("user", JSON.stringify(res.user));
       localStorage.setItem("token", res.token); 
       

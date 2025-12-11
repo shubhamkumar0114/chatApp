@@ -44,8 +44,8 @@ const Setting = ({ setPage }) => {
   return (
     <div
       className={`${
-        theme ? "bg-zinc-900 text-gray-100" : "bg-white text-black"
-      } cursor-pointer flex flex-col gap-6  common`}
+        theme ? "bg-zinc-950 text-gray-100" : "bg-white text-black"
+      } cursor-pointer flex flex-col gap-6 common`}
     >
       <div className="flex justify-between items-center">
         <h1 className="text-[1.1rem] ">Setting</h1>

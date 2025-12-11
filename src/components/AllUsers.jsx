@@ -23,20 +23,20 @@ const AllUsers = () => {
     <div
       className={`${
         theme ? "bg-transparent text-gray-100" : "bg-white text-gray-950"
-      }`}
+      } `}
     >
-      <div className={` main-user-section`}>
+      <div className={` w-[100%]  px-4`}>
         <div className=" w-full ">
           <div>
             <LeftTopNav />
             <div>
               <SearchUser setSearch={setSearch} />
             </div>
-            <h1>Chats</h1>
+            <h1 className="px-4">Chats</h1>
             <div
-              className="user-section"
+              className=" flex flex-col w-[28vw] gap-4 px-2 py-4"
               style={{
-                height: "66vh",
+                height: "72vh",
                 overflowY: "scroll",
               }}
             >

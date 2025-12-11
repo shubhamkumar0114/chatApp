@@ -17,15 +17,15 @@ const Right = () => {
 
   return (
     <div
-      className={`h-screen chat-right-bg ${
+      className={` h-[100%] chat-right-bg ${
         theme
-          ? "bg-zinc-900 border-l border-zinc-700"
+          ? "bg-zinc-950 border-l border-zinc-700"
           : "bg-white text-gray-950 border-l border-gray-300"
       }`}
     >
       {selectedUser ? (
         <>
-          <div className={`${box ? "w-[66%]" : "w-[100%]"} h-[100%] `}>
+          <div className={`${box ? "w-[66%]" : "w-[100%]"}  `}>
             <div>
               <ChatNav handleProfile={handleProfile} />
             </div>

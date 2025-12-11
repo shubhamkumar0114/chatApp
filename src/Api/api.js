@@ -31,8 +31,8 @@ export const handleSendOtp = async (number) => {
     );
     return res.data;
   } catch (error) {
-    toast.error(error?.response?.data?.error)
-    return
+    toast.error(error?.response?.data?.error);
+    return;
   }
 };
 

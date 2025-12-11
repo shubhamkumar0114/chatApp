@@ -32,44 +32,46 @@ const Left = () => {
 
   return (
     <div
-      className={` h-[100%]  left-sidebar ${
-        theme ? "bg-zinc-900" : "bg-white text-gray-950"
+      className={` h-screen flex gap-3  ${
+        theme ? "bg-zinc-950 text-white" : "bg-white text-gray-950"
       }`}
     >
-      <div className="sidebar">
-        <div className="sub-sidebar ">
-          <div className="setting-icon-section">
+      <div className=" flex flex-col border-r-gray-600 border-r justify-between items-center gap-12 pb-8 px-2">
+        <div className=" flex flex-col justify-start gap-6 mt-4">
+          <div className=" w-6 h-6">
             <MdOutlineChat
-              className="setting-icon"
+              className="w-[100%] h-[100%] cursor-pointer"
               onClick={() => setPage("Home")}
             />
           </div>
-          <div className="setting-icon-section">
+          <div className="w-6 h-6">
             <MdHistoryToggleOff
-              className="setting-icon"
+              className="w-[100%] h-[100%] cursor-pointer"
               onClick={() => setPage("Stories")}
             />
           </div>
-          <div className="setting-icon-section">
+          <div className="w-6 h-6">
             <IoCallOutline
-              className="setting-icon"
+              className="w-[100%] h-[100%] cursor-pointer"
               onClick={() => setPage("Call")}
             />
           </div>
         </div>
-        <div className="setting">
-          <div className="setting-icon-section">
+        <div className=" flex flex-col items-center gap-6">
+          <div className="w-6 h-6">
             <IoSettingsOutline
-              className="setting-icon"
+              className="w-[100%] h-[100%] cursor-pointer"
               onClick={() => setPage("Setting")}
             />
           </div>
           <div
-            className={`${theme ? "" : "border"} side-pro-icon `}
+            className={`${
+              theme ? "" : "border"
+            }  w-10 overflow-hidden h-10 rounded-full`}
             onClick={handleProfile}
           >
             <img
-              className="img"
+              className=" w-[100%] h-[100%] cursor-pointer"
               onClick={() => setPage("Profile")}
               src={authUser?.image?.url}
               alt=""

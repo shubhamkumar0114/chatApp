@@ -9,14 +9,14 @@ const MainSection = () => {
   return (
     <div
       className={`${
-        theme ? "bg-black" : "bg-white text-gray-950"
-      } h-screen top-mains`}
+        theme ? "bg-zinc-900" : "bg-white text-gray-950"
+      }  `}
     >
-      <div className="mains">
-        <div className="">
+      <div className=" flex md:flex-row flex-col">
+        <div className="w-[36vw] ">
           <Left />
         </div>
-        <div>
+        <div className='w-[64vw] '>
           <Right />
         </div>
       </div>
