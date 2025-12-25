@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { AuthUserClick } from "../contextApi/Context";
 import { IoMdSend } from "react-icons/io";
 import { handleSendMessage } from "../Api/api";
-import { toast } from "react-toastify";
+import { toast } from "react-hot-toast";
 import Loading from "./Loading";
 import { SocketContext } from "../contextApi/Sockets";
 import socket from "../services/Socket";
@@ -95,17 +95,16 @@ const InputSend = ({ box }) => {
         theme
           ? "bg-zinc-800 text-white shadow shadow-zinc-800 "
           : "bg-white shadow shadow-zinc-400 text-black"
-      }  input-section`}
+      }  input-section `}
     >
       <div className="w-full z-50 ">
-        <form onSubmit={handleSubmit} className="flex ">
+        <form onSubmit={handleSubmit} className="flex">
           <div className="file-inputs">
             <label htmlFor="file">
               <h1 className="">+</h1>
             </label>
             <input
               type="file"
-              accept="image/*"
               name=""
               onChange={(e) => setImage(e.target.files[0])}
               hidden
@@ -131,7 +130,7 @@ const InputSend = ({ box }) => {
               }  -rotate-12 send-btn `}
               type="submit"
             >
-              {loading ? <Loading /> : <IoMdSend />}
+              {loading ? <Loading className="text-sm" /> : <IoMdSend />}
             </button>
           </div>
         </form>

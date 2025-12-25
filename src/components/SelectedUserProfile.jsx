@@ -7,10 +7,10 @@ const SelectedUserProfile = ({ selectedUser, box }) => {
   return (
     <>
       <div
-        className={`w-[24vw] ${box ? "block" : "hidden"} z-50  h-[100%] ${
+        className={`w-[22vw] ${box ? "block" : "hidden"} z-50  h-[90vh] mt-4 mr-6  ${
           theme
             ? "bg-zinc-900 text-gray-200 border-l border-l-zinc-500"
-            : "bg-white border-l border-l-zinc-500"
+            : "bg-white text-black border-l border-l-zinc-500"
         } absolute flex flex-col overflow-hidden  profile-move `}
       >
         <div className="text-center ">

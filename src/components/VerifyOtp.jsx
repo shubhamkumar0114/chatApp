@@ -1,13 +1,13 @@
 import axios from "axios";
 import React, { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { handleSendOtp } from "../Api/api";
 
 const VerifyOtp = () => {
   const [otp, setOtp] = useState(new Array(4).fill(""));
   const navigate = useNavigate();
   const refArr = useRef([]);
   const finalOtp = otp.join("");
+  
   useEffect(() => {
     refArr.current[0]?.focus();
   }, []);
@@ -27,20 +27,7 @@ const VerifyOtp = () => {
     }
   };
 
-  // let reOtp = resendOtp;
-  // const handleResendOtp = async () => {
-  //   try {
-  //     const res = await handleSendOtp(reOtp);
-  //     setTimeout(() => {
-  //       toast.success(res?.otp);
-  //       clearTimeout(setTimeout);
-  //     }, 6000);
-  //     if (res?.otp) {
-  //       toast.success("Send otp");
-  //       navigate("/");
-  //     }
-  //   } catch (error) {}
-  // };
+
 
   const handleVerifyOtp = async (e) => {
     e.preventDefault();
@@ -57,7 +44,6 @@ const VerifyOtp = () => {
           }
         );
         navigate("/");
-        window.location.href = `${window.location.origin}/`;
         localStorage.setItem("user", JSON.stringify(res?.data?.user));
         localStorage.setItem("token", res?.data?.token);
       };

@@ -25,7 +25,7 @@ const ChatNav = ({ handleProfile }) => {
         <div className="flex items-center gap-x-4 relative">
           <img
             src={selectedUser?.image.url}
-            className="w-10 h-10  rounded-full"
+            className="w-10 h-10  rounded-full border border-zinc-600 p-[2px]"
             alt=""
           />
           <span

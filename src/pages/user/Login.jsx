@@ -1,13 +1,13 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
-import { toast } from "react-toastify";
+import { toast } from "react-hot-toast";
 import { handleSendOtp, login } from "../../Api/api";
 
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [formOpen, setFormOpen] = useState(false);
+  const [formOpen, setFormOpen] = useState(true);
   const [number, setNumber] = useState("");
 
   const navigate = useNavigate();
@@ -36,6 +36,7 @@ export default function Login() {
     setFormOpen(!formOpen);
   };
 
+  // Login with mobile number
   const handleSumbitByNo = async (e) => {
     e.preventDefault();
     try {

@@ -59,18 +59,18 @@ const Profile = () => {
 
   return (
     <div
-      style={{ height: "100%", width: "100%", overflowY: "scroll" }}
-      className={`${theme ? "bg-zinc-950" : "bg-white text-gray-950"} profile `}
+      // style={{ height: "100%", width: "100%", overflowY: "scroll" }}
+      className={`${theme ? "bg-zinc-900" : "bg-white text-gray-950"}  `}
     >
-      <div className="px-4 py-2">
-        <div className="flex items-center gap-2 px-4">
-          <h1 className="text-[18px] profile-text">Profile</h1>
+      <div className="">
+        <div className="flex items-center gap-2 ">
+          <h1 className="text-[18px] mb-10 tracking-wider">Profile</h1>
         </div>
       </div>
 
       <div className="">
         <div className=" w-full pro-content flex flex-col justify-start items-start gap-2">
-          <div className="avatar ">
+          <div className="avatar">
             <input
               type="file"
               id="file"
@@ -96,7 +96,7 @@ const Profile = () => {
             </label>
           </div>
 
-          <div className="profile-content">
+          <div className="profile-content ">
             <div className="text-content">
               {!nameEdit ? (
                 <>

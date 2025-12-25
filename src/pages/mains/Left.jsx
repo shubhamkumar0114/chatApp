@@ -32,8 +32,8 @@ const Left = () => {
 
   return (
     <div
-      className={` h-screen flex gap-3  ${
-        theme ? "bg-zinc-950 text-white" : "bg-white text-gray-950"
+      className={` h-[100%] flex gap-3 ${
+        theme ? "bg-zinc-900 text-white" : "bg-white text-black"
       }`}
     >
       <div className=" flex flex-col border-r-gray-600 border-r justify-between items-center gap-12 pb-8 px-2">
@@ -80,11 +80,13 @@ const Left = () => {
         </div>
       </div>
       {/* *********************USERS LIST SECTION LEFT*********************** */}
-      {components[page] || (
-        <div>
-          <AllUsers />
-        </div>
-      )}
+      <div className="w-[34vw] py-4 px-2">
+        {components[page] || (
+          <div>
+            <AllUsers />
+          </div>
+        )}
+      </div>
     </div>
   );
 };

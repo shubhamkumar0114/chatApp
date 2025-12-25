@@ -12,7 +12,7 @@ const AllUsers = () => {
   const { users } = useContext(AuthUserClick);
   const { selectedUser, setSelectedUser } = useContext(AuthUserClick);
   const { theme, setTheme } = useContext(ThemeContext);
-  // const [chat] = useContext(SocketContext);
+
 
   const filterUser = users?.filter(
     (user) =>
@@ -22,24 +22,18 @@ const AllUsers = () => {
   return (
     <div
       className={`${
-        theme ? "bg-transparent text-gray-100" : "bg-white text-gray-950"
+        theme ? "bg-transparent text-gray-100" : "bg-white text-black"
       } `}
     >
-      <div className={` w-[100%]  px-4`}>
+      <div className={` w-full`}>
         <div className=" w-full ">
           <div>
             <LeftTopNav />
             <div>
               <SearchUser setSearch={setSearch} />
             </div>
-            <h1 className="px-4">Chats</h1>
-            <div
-              className=" flex flex-col w-[28vw] gap-4 px-2 py-4"
-              style={{
-                height: "72vh",
-                overflowY: "scroll",
-              }}
-            >
+            <h1 className="px-2 tracking-wide font-semibold">Chats</h1>
+            <div className=" flex h-[61vh] overflow-y-scroll flex-col w-[100%] gap-2 px-1 py-2 ">
               {filterUser?.map((user) => (
                 <div
                   key={user?._id}

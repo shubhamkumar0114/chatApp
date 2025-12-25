@@ -44,11 +44,11 @@ const Setting = ({ setPage }) => {
   return (
     <div
       className={`${
-        theme ? "bg-zinc-950 text-gray-100" : "bg-white text-black"
-      } cursor-pointer flex flex-col gap-6 common`}
+        theme ? "bg-zinc-900 text-gray-100" : "bg-white text-black"
+      } cursor-pointer flex flex-col gap-6 `}
     >
       <div className="flex justify-between items-center">
-        <h1 className="text-[1.1rem] ">Setting</h1>
+        <h1 className="text-[1.1rem] tracking-wide font-semibold">Setting</h1>
         <div>
           {!theme ? (
             <h2 onClick={handleToggle} className="text-[1.5rem]">
@@ -63,7 +63,7 @@ const Setting = ({ setPage }) => {
       </div>
 
       {/* ********************SEARCH SETTING************************* */}
-      <div className="w-full border border-gray-700  rounded-3xl search-setting">
+      <div className="w-full shadow shadow-amber-400  rounded-3xl pl-4">
         <input
           type="text"
           className="h-10 w-full outline-none border-none placeholder:text-gray-600"
@@ -74,7 +74,7 @@ const Setting = ({ setPage }) => {
 
       {/* ********************PROFILE************************* */}
       <div className="top-setting">
-        <div onClick={()=> setPage("Profile")} className="flex items-center gap-4 settings">
+        <div onClick={()=> setPage("Profile")} className="flex items-center gap-4 px-2 py-2">
           <div className="w-15 h-15 rounded-full overflow-hidden bg-center ">
             <img className="w-full h-full" src={authUser?.image?.url} alt="" />
           </div>
@@ -85,10 +85,10 @@ const Setting = ({ setPage }) => {
         </div>
       </div>
 
-      <div>
+      <div className="flex flex-col gap-4">
         {filterList?.map((data, index) => (
-          <div key={index} className="top-setting">
-            <div className="flex items-center gap-4 settings">
+          <div key={index} className="hover:bg-gray-200 rounded-md px-2">
+            <div className="flex items-center gap-4 py-2">
               <div className="w-8 rounded-full overflow-hidden bg-center ">
                 <p className="text-2xl text-gray-500">{data?.icon}</p>
               </div>

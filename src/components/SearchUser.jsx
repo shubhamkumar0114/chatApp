@@ -9,7 +9,7 @@ const SearchUser = ({ setSearch }) => {
           type="text"
           // value={searchTerm}
           onChange={(e) => setSearch(e.target.value)}
-          className="serach-input"
+          className="serach-input placeholder:text-gray-700"
           placeholder="Search user.."
         />
       </div>

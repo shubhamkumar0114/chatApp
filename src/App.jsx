@@ -1,10 +1,9 @@
 import React, { lazy } from "react";
 import { Routes, Route } from "react-router-dom";
 import "./App.css";
-import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useAuth } from "./contextApi/useAuth";
-
+import  { Toaster } from "react-hot-toast";
 const MainSection = lazy(() => import("./pages/mains/MainSection"));
 const Login = lazy(() => import("./pages/user/Login"));
 const Signup = lazy(() => import("./pages/user/Signup"));
@@ -21,7 +20,7 @@ function App() {
 
   return (
     <>
-      <ToastContainer position="top-right" autoClose={2000} />
+      <Toaster />
       <Routes>
         <Route path="/" element={authUser ? <MainSection /> : <Login />} />
         <Route path="/chat" element={authUser ? <Chat /> : <Login />} />
@@ -31,7 +30,7 @@ function App() {
         <Route path="/signup" element={<Signup />} />
         <Route path="/forgetpassword" element={<ForgetPassword />} />
         <Route path="/resetpassword/:token" element={<ResetPassword />} />
-        <Route path="/verifyotp" element={<VerifyOtp />} />
+        <Route path="/verifyotp" element={ <VerifyOtp /> } />
         <Route path="*" element={<PageNotFound />} />
       </Routes>
     </>

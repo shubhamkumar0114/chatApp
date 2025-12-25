@@ -17,22 +17,22 @@ const Right = () => {
 
   return (
     <div
-      className={` h-[100%] chat-right-bg ${
+      className={` h-full chat-right-bg ${
         theme
           ? "bg-zinc-950 border-l border-zinc-700"
-          : "bg-white text-gray-950 border-l border-gray-300"
+          : "bg-white text-white border-l border-gray-300"
       }`}
     >
       {selectedUser ? (
         <>
-          <div className={`${box ? "w-[66%]" : "w-[100%]"}  `}>
+          <div className={`${box ? "w-[66%]" : "w-[100%]"} rignt-chat-section `}>
             <div>
               <ChatNav handleProfile={handleProfile} />
             </div>
             <div>
               <Chat />
             </div>
-            <div className="px-4 py-2">
+            <div className="px-4 py-1">
               <InputSend />
             </div>
           </div>
@@ -45,7 +45,7 @@ const Right = () => {
           <div className="no-selected-text">
             <img
               src={whatsapp}
-              className={`${!theme ? "shadow shadow-zinc-600" : ""} w-[35vw] `}
+              className={` w-[100%] `}
               alt=""
             />
             <p>No Selected Conversation</p>

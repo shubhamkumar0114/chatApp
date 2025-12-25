@@ -1,5 +1,5 @@
 import axios from "axios";
-import { toast } from "react-toastify";
+import { toast } from "react-hot-toast";
 import Cookies from "js-cookie";
 const API = axios.create({
   baseURL: "https://chat-backend-api-r9xu.onrender.com/api",
@@ -145,3 +145,17 @@ export const handleResetPassword = async (password, token) => {
 //     console.log(error);
 //   }
 // };
+
+// delete Msg api call
+
+export const handleDelete = async (msgId, token) => {
+  // console.log(msgId, token);
+  const res = await API.post(`/message/deletemessage/${msgId}`, {
+    withCredentials: true,
+    headers: {
+      Authorization: `Bearer ${token}`,
+      "Content-Type": "multipart/form-data",
+    },
+  });
+  return res.data;
+};
