@@ -5,6 +5,7 @@ import SearchUser from "./SearchUser";
 import User from "./User";
 import LeftTopNav from "./LeftTopNav";
 import { ThemeContext } from "../contextApi/Theme";
+import { Link } from "react-router-dom";
 
 const AllUsers = () => {
   const [search, setSearch] = useState("");
@@ -35,7 +36,7 @@ const AllUsers = () => {
             <h1 className="px-2 tracking-wide font-semibold">Chats</h1>
             <div className=" flex h-[61vh] overflow-y-scroll flex-col w-[100%] gap-2 px-1 py-2 ">
               {filterUser?.map((user) => (
-                <div
+                <Link to={""}
                   key={user?._id}
                   className={`${
                     selectedUser?._id === user._id ? "selected-user" : ""
@@ -43,7 +44,7 @@ const AllUsers = () => {
                   onClick={() => setSelectedUser(user)}
                 >
                   <User user={user} />
-                </div>
+                </Link>
               ))}
             </div>
           </div>

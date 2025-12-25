@@ -63,16 +63,16 @@ export default function Login() {
   };
 
   return (
-    <div className=" p-4 w-full  md:flex flex-row-reverse gap-8 justify-center items-center rounded-md bg-emerald-200  text-black h-screen">
-      <div className="flex flex-row-reverse login move bg-white rounded-lg py-8">
-        <div className=" p-4">
-          <h2 className="text-center text-[1.5rem] font-semibold login-heading">
+    <div className=" w-full  md:flex flex-row-reverse gap-8 justify-center items-center rounded-md bg-emerald-200  text-black h-screen">
+      <div className="flex flex-row-reverse login move bg-white rounded-lg">
+        <div className=" h-screen flex flex-col justify-center items-center">
+          <h2 className="text-center tracking-wide text-[1.5rem] font-semibold login-heading ">
             Login
           </h2>
           {formOpen ? (
             <form onSubmit={handleSubmit} className="form-rotate">
-              <div className="flex flex-col gap-y-6 ">
-                <label className="input w-full login-input outline-none validator bg-transparent border border-zinc-300">
+              <div className="flex flex-col gap-y-9 ">
+                <label className="flex items-center w-full  login-input outline-none validator bg-transparent border border-gray-600 rounded-lg px-2">
                   <svg
                     className="h-[1em] text-black opacity-50"
                     xmlns="http://www.w3.org/2000/svg"
@@ -95,14 +95,14 @@ export default function Login() {
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="mail@site.com"
                     required
-                    className="bg-transparent w-full"
+                    className="bg-transparent w-full h-12 border-none outline-none pl-4 text-[17px] tracking-wide"
                   />
                 </label>
                 <div className="validator-hint hidden">
                   Enter valid email address
                 </div>
 
-                <label className="input w-full login-input outline-none validator bg-transparent border border-zinc-300">
+                <label className="flex items-center w-full login-input outline-none validator bg-transparent border border-gray-600 rounded-lg px-2">
                   <svg
                     className="h-[1em] opacity-50"
                     xmlns="http://www.w3.org/2000/svg"
@@ -127,7 +127,7 @@ export default function Login() {
                   <input
                     type="password"
                     required
-                    className=" bg-transparent outline-none w-full"
+                    className=" bg-transparent w-full  h-12 border-none outline-none pl-4 text-[17px] tracking-wide"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     placeholder="Password"
@@ -149,11 +149,11 @@ export default function Login() {
               </small>
               <div className="flex justify-between items-center py-2">
                 <Link to={"/forgetpassword"}>
-                  <p className="text-blue-600 cursor-pointer">
+                  <p className="text-blue-600 tracking-wide text-[20px] cursor-pointer">
                     ForgetPassword?
                   </p>
                 </Link>
-                <Link to={"/signup"} className="text-gray-700 cursor-pointer">
+                <Link to={"/signup"} className="text-gray-700 text-[20px] cursor-pointer">
                   Signup
                 </Link>
               </div>
@@ -165,7 +165,7 @@ export default function Login() {
                   Login
                 </button>
               </div>
-              <div className="mt-1 text-blue-600 hover:underline">
+              <div className="mt-4 text-[18px] tracking-wide text-blue-600  hover:underline">
                 <Link onClick={handleFormLogin}>Login with Mobile</Link>
               </div>
             </form>
@@ -206,11 +206,6 @@ export default function Login() {
               </Link>
             </div>
           )}
-        </div>
-        <div>
-          <div>
-            <img src="../public/login_img.png" alt="" />
-          </div>
         </div>
       </div>
     </div>

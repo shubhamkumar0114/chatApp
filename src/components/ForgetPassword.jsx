@@ -20,7 +20,6 @@ const ForgotPassword = () => {
       toast.error(error?.message);
     }
   };
-  // style={{ maxWidth: "300px", margin: "50px auto" }}
   return (
     <div className="flex justify-center bg-emerald-200 items-center pt-30">
       <form onSubmit={handleSubmit} className="bg-white p-4 rounded-lg">

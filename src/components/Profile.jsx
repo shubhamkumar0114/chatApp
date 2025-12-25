@@ -80,7 +80,7 @@ const Profile = () => {
             <div className="ring-primary pro-image ring-offset-base-100  rounded-full  ring-offset-2">
               <div className="w-28 h-28 cursor-pointer">
                 <img
-                  className="w-full h-full "
+                  className="w-full h-full bg-cover bg-center"
                   src={`${
                     authUser
                       ? authUser?.image?.url

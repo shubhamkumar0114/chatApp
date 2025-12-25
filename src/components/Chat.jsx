@@ -20,12 +20,12 @@ const Chat = () => {
   }, [chat]);
 
   return (
-    <div className={` conversation bg-amber-100`}>
+    <div className={`flex flex-col h-[80vh] md:h-[70vh] py-1  md:px-10  bg-amber-100`}>
       {chat.length !== 0 ? (
         <div
           ref={lastMsgRef}
-          className="px-2 scroll-smooth  pt-2"
-          style={{ height: "70vh", overflowY: "scroll" }}
+          className="px-2 scroll-smooth  pt-2 h-[80vh] md:h-[70vh] overflow-scroll"
+          
         >
           {chat?.map((msg, index) => (
             <div

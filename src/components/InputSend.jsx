@@ -95,7 +95,7 @@ const InputSend = ({ box }) => {
         theme
           ? "bg-zinc-800 text-white shadow shadow-zinc-800 "
           : "bg-white shadow shadow-zinc-400 text-black"
-      }  input-section `}
+      }  input-section  `}
     >
       <div className="w-full z-50 ">
         <form onSubmit={handleSubmit} className="flex">
@@ -116,7 +116,7 @@ const InputSend = ({ box }) => {
               type="text"
               value={message}
               onChange={handleTyping}
-              className={`w-full input-msg ${
+              className={`w-full input-msg text-[18px] tracking-wide ${
                 theme ? "placeholder:text-white" : "placeholder:text-black"
               }`}
               placeholder="Type a message...."

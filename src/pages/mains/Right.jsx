@@ -17,7 +17,7 @@ const Right = () => {
 
   return (
     <div
-      className={` h-full chat-right-bg ${
+      className={` h-screen md:h-full chat-right-bg  ${
         theme
           ? "bg-zinc-950 border-l border-zinc-700"
           : "bg-white text-white border-l border-gray-300"

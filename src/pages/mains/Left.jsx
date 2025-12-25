@@ -36,7 +36,7 @@ const Left = () => {
         theme ? "bg-zinc-900 text-white" : "bg-white text-black"
       }`}
     >
-      <div className=" flex flex-col border-r-gray-600 border-r justify-between items-center gap-12 pb-8 px-2">
+      <div className="hidden  md:flex flex-col border-r-gray-600 border-r justify-between items-center gap-12 pb-8 px-2">
         <div className=" flex flex-col justify-start gap-6 mt-4">
           <div className=" w-6 h-6">
             <MdOutlineChat
@@ -80,7 +80,7 @@ const Left = () => {
         </div>
       </div>
       {/* *********************USERS LIST SECTION LEFT*********************** */}
-      <div className="w-[34vw] py-4 px-2">
+      <div className="w-full md:w-[34vw] py-4 px-2">
         {components[page] || (
           <div>
             <AllUsers />

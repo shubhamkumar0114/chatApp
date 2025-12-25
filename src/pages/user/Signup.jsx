@@ -55,24 +55,23 @@ export default function Signup() {
   };
 
   return (
-    <div className=" p-4 bg-emerald-200 h-screen md:flex flex-row-reverse gap-8 justify-center items-center w-full  rounded-md  text-gray-300 sm:w-full">
-      <div className="flex flex-row-reverse login move bg-white py-4 px-4 rounded-lg items-center">
-        <div className=" p-2 rounded-md border">
-          <h2 className="text-center text-2xl text-gray-600 font-semibold ">
+    <div className=" bg-emerald-200 h-screen md:flex flex-row-reverse gap-8 justify-center items-center w-full  rounded-md  text-gray-300 sm:w-full">
+      <div className="flex flex-row-reverse login move bg-white  rounded-lg items-center">
+        <div className=" h-screen rounded-md pt-2">
+          <h2 className="text-center tracking-wide text-2xl text-gray-600 font-semibold mb-4">
             Signup
           </h2>
-          <form onSubmit={handleSubmit} className="form">
+          <form onSubmit={handleSubmit} className="flex flex-col gap-4">
             <input
               type="text"
               placeholder="name"
               value={name}
               onChange={(e) => setName(e.target.value)}
               required
-              className="bg-transparent text-gray-600 placeholder:text-gray-600  w-full shadow-gray-300 shadow border-none outline-none"
+              className="bg-transparent text-gray-600 placeholder:text-gray-600  w-full shadow-gray-400 shadow border-none outline-none"
               style={{
                 display: "block",
-                margin: "10px 0",
-                padding: "8px",
+                padding: "12px",
                 width: "100%",
                 borderRadius: "6px",
               }}
@@ -83,11 +82,10 @@ export default function Signup() {
               value={username}
               onChange={(e) => setUsername(e.target.value)}
               required
-              className="bg-transparent text-gray-600 placeholder:text-gray-600 w-full shadow-gray-300 shadow border-none outline-none"
+              className="bg-transparent text-gray-600 placeholder:text-gray-600 w-full shadow-gray-400 shadow border-none outline-none"
               style={{
                 display: "block",
-                margin: "10px 0",
-                padding: "8px",
+                padding: "12px",
                 width: "100%",
                 borderRadius: "6px",
               }}
@@ -96,13 +94,12 @@ export default function Signup() {
               type="email"
               placeholder="example@gmail.com"
               value={email}
-              className="bg-transparent text-gray-600 placeholder:text-gray-600 w-full shadow-gray-300 shadow border-none outline-none"
+              className="bg-transparent text-gray-600 placeholder:text-gray-600 w-full shadow-gray-400 shadow border-none outline-none"
               onChange={(e) => setEmail(e.target.value)}
               required
               style={{
                 display: "block",
-                margin: "10px 0",
-                padding: "8px",
+                padding: "12px",
                 width: "100%",
                 borderRadius: "6px",
               }}
@@ -111,13 +108,12 @@ export default function Signup() {
               type="number"
               placeholder="phone"
               value={phone}
-              className="bg-transparent text-gray-600 placeholder:text-gray-600  w-full shadow-gray-300 shadow border-none outline-none"
+              className="bg-transparent text-gray-600 placeholder:text-gray-600  w-full shadow-gray-400 shadow border-none outline-none"
               onChange={(e) => setPhone(e.target.value)}
               required
               style={{
                 display: "block",
-                margin: "10px 0",
-                padding: "8px",
+                padding: "12px",
                 width: "100%",
                 borderRadius: "6px",
               }}
@@ -125,15 +121,14 @@ export default function Signup() {
             <input
               type="password"
               placeholder="password"
-              className="bg-transparent text-gray-600 placeholder:text-gray-600  w-full shadow-gray-300 shadow border-none outline-none"
+              className="bg-transparent text-gray-600 placeholder:text-gray-600  w-full shadow-gray-400 shadow border-none outline-none"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
               pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
               style={{
                 display: "block",
-                margin: "10px 0",
-                padding: "8px",
+                padding: "12px",
                 width: "100%",
                 borderRadius: "6px",
               }}
@@ -147,11 +142,10 @@ export default function Signup() {
               type="file"
               placeholder="image"
               onChange={onChangeImage}
-              className="bg-transparent text-gray-600 w-full shadow-gray-300 shadow border-none outline-none"
+              className="bg-transparent text-gray-700 w-full shadow-gray-400 shadow border-none outline-none"
               style={{
                 display: "block",
-                margin: "10px 0",
-                padding: "8px",
+                padding: "12px",
                 width: "100%",
                 borderRadius: "6px",
               }}
@@ -160,26 +154,26 @@ export default function Signup() {
             <div className="border w-10 h-10 rounded-md border-gray-300">
               <img
                 src={imgPrev}
-                className="w-full h-full opacity-70"
+                className="w-full h-full bg-center opacity-70"
                 alt="previmage"
               />
             </div>
 
             <div className="flex justify-between items-center py-2 px-1">
               <Link to={"/login"}>
-                <p className="text-blue-600 text-sm cursor-pointer">
+                <p className="text-blue-600 text-md cursor-pointer">
                   already have account.?
                 </p>
               </Link>
               <Link
                 to={"/login"}
-                className="text-gray-600 font-semibold cursor-pointer"
+                className="text-gray-600 text-[21px] font-semibold cursor-pointer"
               >
                 Login
               </Link>
             </div>
             <div className="flex justify-center items-center bg-blue-600 rounded-md text-white cursor-pointer">
-              <button type="submit" style={{ padding: "8px 16px" }}>
+              <button type="submit" style={{ padding: "8px 16px", fontSize: "19px"}}>
                 {loading ? <Loading /> : "Signup"}
               </button>
             </div>

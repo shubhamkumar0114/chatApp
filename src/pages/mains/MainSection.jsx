@@ -12,11 +12,11 @@ const MainSection = () => {
         theme ? "bg-zinc-900" : "bg-white text-black"
       }  `}
     >
-      <div className=" flex md:flex-row h-[96vh] justify-center py-4 flex-col bg-amber-200 overflow-hidden">
-        <div className="w-[34vw] ">
+      <div className=" flex md:h-[96vh] h-screen justify-center py-4 md:bg-amber-200 overflow-hidden">
+        <div className="w-full md:w-[34vw] ">
           <Left />
         </div>
-        <div className='w-[62vw] '>
+        <div className='w-full md:w-[62vw] hidden md:block'>
           <Right />
         </div>
       </div>
