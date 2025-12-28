@@ -6,6 +6,7 @@ import { MdOutlineChat } from "react-icons/md";
 import { MdHistoryToggleOff } from "react-icons/md";
 import { IoCallOutline } from "react-icons/io5";
 import { ThemeContext } from "../../contextApi/Theme";
+import TabSection from "../../components/TabSection";
 
 const Profile = lazy(() => import("../../components/Profile"));
 const Setting = lazy(() => import("../../components/Setting"));

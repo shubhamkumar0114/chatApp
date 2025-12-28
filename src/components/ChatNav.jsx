@@ -1,7 +1,8 @@
 import React, { useContext, useState } from "react";
-import { FaArrowLeft } from "react-icons/fa6";
+
 import { FaVideo } from "react-icons/fa";
 import { FaPhoneAlt } from "react-icons/fa";
+import { FaArrowLeft } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 import { BsThreeDotsVertical } from "react-icons/bs";
 import { AuthUserClick } from "../contextApi/Context";
@@ -22,6 +23,9 @@ const ChatNav = ({ handleProfile }) => {
       }`}
     >
       <div className="flex items-center gap-x-6 ">
+        <Link to={"/"}>
+          <FaArrowLeft className="md:hidden block" />
+        </Link>
         <div className="flex items-center gap-x-4 relative">
           <img
             src={selectedUser?.image.url}
@@ -34,7 +38,7 @@ const ChatNav = ({ handleProfile }) => {
             } absolute w-16 h-16 top-[32px] left-[-18px]`}
           ></span>
           <div className="flex cursor-pointer flex-col" onClick={handleProfile}>
-            <h2 className="text-[1.1rem]">
+            <h2 className="text-[3vw] md:text-[1.1rem]">
               {selectedUser ? selectedUser?.name : "Username"}
             </h2>
 
@@ -44,16 +48,16 @@ const ChatNav = ({ handleProfile }) => {
           </div>
         </div>
       </div>
-      <div className="flex items-center gap-x-8 ">
-        <Link>
-          <FaVideo />
+      <div className="flex items-center gap-x-6 ">
+        <Link to={"/video"}>
+          <FaVideo className="text-[1.3rem]" />
         </Link>
         <Link>
-          <FaPhoneAlt />
+          <FaPhoneAlt className="text-[1.3rem]" />
         </Link>
         <Link onClick={handleProfile} className="text-[1.2rem]">
           {" "}
-          <BsThreeDotsVertical />{" "}
+          <BsThreeDotsVertical className="text-[1.3rem]" />{" "}
         </Link>
       </div>
     </div>

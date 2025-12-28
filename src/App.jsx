@@ -4,6 +4,8 @@ import "./App.css";
 import "react-toastify/dist/ReactToastify.css";
 import { useAuth } from "./contextApi/useAuth";
 import  { Toaster } from "react-hot-toast";
+import Profile from "./components/Profile";
+import Video from "./components/VideoCall/Video";
 const MainSection = lazy(() => import("./pages/mains/MainSection"));
 const Login = lazy(() => import("./pages/user/Login"));
 const Signup = lazy(() => import("./pages/user/Signup"));
@@ -17,20 +19,23 @@ const PageNotFound = lazy(() => import("./components/PageNotFound"));
 
 function App() {
   const [authUser] = useAuth();
-
+  
+  
   return (
     <>
       <Toaster />
       <Routes>
         <Route path="/" element={authUser ? <MainSection /> : <Login />} />
         <Route path="/chat" element={authUser ? <Chat /> : <Login />} />
+        <Route path="/profile" element={authUser ? <Profile /> : <Login />} />
         <Route path="/rightchat" element={authUser ? <Right /> : <Login />} />
         <Route path="/chatmsg" element={<ChatMsg />} />
         <Route path="/login" element={authUser ? <MainSection /> : <Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/forgetpassword" element={<ForgetPassword />} />
         <Route path="/resetpassword/:token" element={<ResetPassword />} />
-        <Route path="/verifyotp" element={ <VerifyOtp /> } />
+        <Route path="/verifyotp" element={<VerifyOtp />} />
+        <Route path="/video" element={<Video />} />
         <Route path="*" element={<PageNotFound />} />
       </Routes>
     </>

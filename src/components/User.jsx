@@ -3,29 +3,29 @@ import { Link } from "react-router-dom";
 import { SocketContext } from "../contextApi/Sockets.jsx";
 
 const User = ({ user}) => {
- 
+
   const [chat, setChat, online, sockets] = useContext(SocketContext);
   const isOnlie = online.includes(user?._id);
 
   return (
     <div>
-      <div>
-        <Link to={"/rightchat"} className={`flexs`}>
+      <div className="">
+        <Link to={`/rightchat`} className={`flexs`}>
           <div className={`avatar ${isOnlie ? "avatar-online" : null} `}>
-            <div className="w-12 h-12  rounded-full border border-zinc-600 p-[2px]">
+            <div className="w-15 h-15  rounded-full border bg-black border-black p-[2px]">
               <img
-                className="w-full h-full rounded-full"
+                className="w-full h-full  bg-center bg-cover rounded-full"
                 src={
                   user
                     ? user?.image?.url
-                    : "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_640.png"
+                    : user?.name[0]
                 }
               />
             </div>
           </div>
           <div className="flex justify-between items-center w-full">
             <div className="flex flex-col gap-0 items-start">
-              <h3 className="tracking-wide text-[15px] font-semibold text-[#1a1a1a]">
+              <h3 className="tracking-wide text-[18px] font-semibold text-[#1a1a1ad0]">
                 {user?.name}
               </h3>
               <small className="">{"msg"}</small>
@@ -34,7 +34,7 @@ const User = ({ user}) => {
               <span className="bg-red-500 text-[#f5f5f5] px-2 py-1 rounded-full">
                 2
               </span>
-              <p>just now</p>
+              <p className="text-[1rem]">just now</p>
             </div>
           </div>
         </Link>

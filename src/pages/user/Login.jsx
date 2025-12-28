@@ -3,12 +3,14 @@ import { Link, useNavigate } from "react-router-dom";
 
 import { toast } from "react-hot-toast";
 import { handleSendOtp, login } from "../../Api/api";
+import Loading from "../../components/Loading";
 
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [formOpen, setFormOpen] = useState(true);
   const [number, setNumber] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const navigate = useNavigate();
 
@@ -19,6 +21,7 @@ export default function Login() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true)
     try {
       
       const res = await login(userInfo);
@@ -27,6 +30,7 @@ export default function Login() {
       
       toast.success("Login Successful ✅");
       navigate("/");
+      setLoading(false)
     } catch (err) {
       toast.error("Invalid credentials ❌");
     }
@@ -39,6 +43,7 @@ export default function Login() {
   // Login with mobile number
   const handleSumbitByNo = async (e) => {
     e.preventDefault();
+    setLoading(true)
     try {
       if (typeof number === "number" && !NaN(number)) {
         alert("only enter number");
@@ -57,13 +62,14 @@ export default function Login() {
         toast.success("Send otp");
         navigate("/verifyotp");
       }
+      setLoading(false);
     } catch (error) {
       console.log(error);
     }
   };
 
   return (
-    <div className=" w-full  md:flex flex-row-reverse gap-8 justify-center items-center rounded-md bg-emerald-200  text-black h-screen">
+    <div className=" w-full  md:flex flex-row-reverse gap-8 justify-center items-center rounded-md bg-emerald-200  text-black h-dvh">
       <div className="flex flex-row-reverse login move bg-white rounded-lg">
         <div className=" h-screen flex flex-col justify-center items-center">
           <h2 className="text-center tracking-wide text-[1.5rem] font-semibold login-heading ">
@@ -153,16 +159,19 @@ export default function Login() {
                     ForgetPassword?
                   </p>
                 </Link>
-                <Link to={"/signup"} className="text-gray-700 text-[20px] cursor-pointer">
+                <Link
+                  to={"/signup"}
+                  className="text-gray-700 text-[20px] cursor-pointer"
+                >
                   Signup
                 </Link>
               </div>
               <div className="flex justify-center items-center bg-blue-600 rounded-md text-white cursor-pointer">
                 <button
                   type="submit"
-                  style={{ padding: "8px 16px", cursor: "pointer" }}
+                  style={{ padding: "8px 16px", fontSize: "18px", cursor: "pointer" }}
                 >
-                  Login
+                  {loading ? <Loading /> : "Login"}
                 </button>
               </div>
               <div className="mt-4 text-[18px] tracking-wide text-blue-600  hover:underline">
@@ -170,12 +179,12 @@ export default function Login() {
               </div>
             </form>
           ) : (
-            <div className="w-98">
+            <div className="md:w-98 w-88">
               <form onSubmit={handleSumbitByNo}>
                 <div className="flex flex-col gap-4">
-                  <label className="input login-input w-full outline-none validator bg-transparent border border-zinc-300">
+                  <label className="flex items-center login-input w-full outline-none validator bg-transparent border border-zinc-300">
                     <div>
-                      <span className="font-semibold text-[1rem] text-gray-500">
+                      <span className="font-semibold text-[1.3rem] text-gray-500">
                         91+
                       </span>
                     </div>
@@ -184,6 +193,7 @@ export default function Login() {
                       value={number}
                       onChange={(e) => setNumber(e.target.value)}
                       placeholder="enter mobile no"
+                      className="h-12 border-none outline-none ml-4 text-[1.2rem] tracking-wide"
                       maxLength="10"
                       required
                     />
@@ -191,18 +201,21 @@ export default function Login() {
                   <div className="flex justify-center items-center bg-blue-600 rounded-md text-white cursor-pointer">
                     <button
                       type="submit"
-                      style={{ padding: "8px 16px", cursor: "pointer" }}
+                      style={{
+                        padding: "12px 16px",
+                        fontSize: "19px",
+                        cursor: "pointer",
+                      }}
                     >
-                      Send otp
+                      {loading ? <Loading /> : "Send otp"}
                     </button>
                   </div>
                 </div>
               </form>
-              <Link
-                onClick={handleFormLogin}
-                className="text-blue-600 hover:underline"
-              >
-                Login with Email
+              <Link onClick={handleFormLogin} className="text-blue-600  ">
+                <p className="mt-4 text-[1.2rem] hover:underline">
+                  Login with Email
+                </p>
               </Link>
             </div>
           )}

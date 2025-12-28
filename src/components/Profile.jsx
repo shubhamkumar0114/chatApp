@@ -7,6 +7,7 @@ import { handleLogoutUser, handleUpdateUser } from "../Api/api";
 import { TiTick } from "react-icons/ti";
 import { ThemeContext } from "../contextApi/Theme";
 import { FaCamera } from "react-icons/fa";
+import { FaArrowLeft } from "react-icons/fa";
 const Profile = () => {
   const [authUser] = useAuth();
   const [name, setName] = useState("");
@@ -59,12 +60,18 @@ const Profile = () => {
 
   return (
     <div
-      // style={{ height: "100%", width: "100%", overflowY: "scroll" }}
-      className={`${theme ? "bg-zinc-900" : "bg-white text-gray-950"}  `}
+      className={`${
+        theme ? "bg-zinc-900" : "bg-white text-gray-950"
+      } md:h-0 h-dvh md:p-0 p-4 `}
     >
       <div className="">
         <div className="flex items-center gap-2 ">
-          <h1 className="text-[18px] mb-10 tracking-wider">Profile</h1>
+          <div className="flex items-center gap-4">
+            <Link to={"/"}>
+              <FaArrowLeft className="text-[1.5rem] block md:hidden" />
+            </Link>
+            <h1 className="text-[1.4rem]  tracking-wider">Profile</h1>
+          </div>
         </div>
       </div>
 
@@ -77,7 +84,7 @@ const Profile = () => {
               onChange={(e) => setImage(e.target.files[0])}
               className="hidden"
             />
-            <div className="ring-primary pro-image ring-offset-base-100  rounded-full  ring-offset-2">
+            <div className="ring-primary pro-image mt-6 ring-offset-base-100  rounded-full  ring-offset-2">
               <div className="w-28 h-28 cursor-pointer">
                 <img
                   className="w-full h-full bg-cover bg-center"

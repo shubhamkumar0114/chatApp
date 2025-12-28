@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { IoIosArrowRoundBack } from "react-icons/io";
 import { handleForgetPassword } from "../Api/api";
-import { toast } from "react-toastify";
+import { toast } from "react-hot-toast";
 import Loading from "./Loading";
 import { Link } from "react-router-dom";
 
@@ -11,8 +11,8 @@ const ForgotPassword = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
     try {
-      setLoading(true);
       await handleForgetPassword(email);
       toast.success("Check your email for reset link!");
       setLoading(false);
@@ -21,15 +21,15 @@ const ForgotPassword = () => {
     }
   };
   return (
-    <div className="flex justify-center bg-emerald-200 items-center pt-30">
-      <form onSubmit={handleSubmit} className="bg-white p-4 rounded-lg">
-        <Link className="text-xl font-semibold" to={"/login"}>
+    <div className="flex justify-center bg-white h-dvh pt-20">
+      <form onSubmit={handleSubmit} className=" w-[100vw] px-4 md:w-full rounded-lg">
+        <Link className="text-4xl font-semibold" to={"/login"}>
           <IoIosArrowRoundBack />
         </Link>
-        <h2 className="text-blue-800 font-medium">Forgot Password</h2>
-        <label className="input validator border border-gray-400 bg-white mt-4 mb-4">
+        <h2 className="text-blue-800 text-lg tracking-wide font-medium mb-4">Forgot Password</h2>
+        <label className="flex gap-2 items-center validator rounded-md px-2  border border-gray-400 bg-white ">
           <svg
-            className="h-[1em]"
+            className="h-[1.4em]"
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
           >
@@ -50,12 +50,12 @@ const ForgotPassword = () => {
             onChange={(e) => setEmail(e.target.value)}
             placeholder="mail@site.com"
             required
-            className="bg-transparent "
+            className="bg-transparent border-none outline-none h-12 w-full text-[1.3rem] tracking-wide"
           />
         </label>
         <button
           type="submit"
-          className="btn bg-white border-none text-blue-800"
+          className=" bg-blue-600 w-full rounded-md text-[1.1rem] mt-6 py-3 border-none text-white"
         >
           {loading ? <Loading /> : "Send Reset Link"}
         </button>

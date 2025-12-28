@@ -1,4 +1,5 @@
 import React, { useContext, useState } from "react";
+import {Link} from "react-router-dom";
 import ChatNav from "../../components/ChatNav";
 import Chat from "../../components/Chat";
 import InputSend from "../../components/InputSend";
@@ -25,7 +26,9 @@ const Right = () => {
     >
       {selectedUser ? (
         <>
-          <div className={`${box ? "w-[66%]" : "w-[100%]"} rignt-chat-section `}>
+          <div
+            className={`${box ? "w-[66%]" : "w-[100%]"} rignt-chat-section `}
+          >
             <div>
               <ChatNav handleProfile={handleProfile} />
             </div>
@@ -41,14 +44,14 @@ const Right = () => {
           </div>
         </>
       ) : (
-        <div className="flex justify-center no-select-conversation items-center ">
-          <div className="no-selected-text">
-            <img
-              src={whatsapp}
-              className={` w-[100%] `}
-              alt=""
-            />
-            <p>No Selected Conversation</p>
+        <div className=" justify-center no-select-conversation items-center ">
+          <div className=" flex flex-col justify-center items-center h-dvh">
+            <p className="text-black py-2 px-2 rounded-lg text-xl mb-4 tracking-wide bg-white  shadow-lg">
+              No Selected Conversation
+            </p>
+            <Link to={"/"} className="text-white py-2 px-3 cursor-pointer rounded-lg text-xl mb-32 tracking-wide bg-blue-600  shadow-lg">
+              Back to chat
+            </Link>
           </div>
         </div>
       )}

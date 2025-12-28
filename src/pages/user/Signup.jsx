@@ -55,7 +55,7 @@ export default function Signup() {
   };
 
   return (
-    <div className=" bg-emerald-200 h-screen md:flex flex-row-reverse gap-8 justify-center items-center w-full  rounded-md  text-gray-300 sm:w-full">
+    <div className=" bg-emerald-200 h-dvh md:flex flex-row-reverse gap-8 justify-center items-center w-full  rounded-md  text-gray-300 sm:w-full">
       <div className="flex flex-row-reverse login move bg-white  rounded-lg items-center">
         <div className=" h-screen rounded-md pt-2">
           <h2 className="text-center tracking-wide text-2xl text-gray-600 font-semibold mb-4">

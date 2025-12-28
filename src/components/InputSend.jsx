@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { AuthUserClick } from "../contextApi/Context";
 import { IoMdSend } from "react-icons/io";
-import { handleSendMessage } from "../Api/api";
+import { handleSendMessage, handleVideoUpload } from "../Api/api";
 import { toast } from "react-hot-toast";
 import Loading from "./Loading";
 import { SocketContext } from "../contextApi/Sockets";
@@ -14,41 +14,46 @@ const InputSend = ({ box }) => {
   const { selectedUser } = useContext(AuthUserClick);
   const [authUser] = useAuth();
   const { theme, setTheme } = useContext(ThemeContext);
-
   const [loading, setLoading] = useState(false);
-  const [image, setImage] = useState();
+  const [file, setFile] = useState();
   const [typingTimeout, setTypingTimeout] = useState(null);
   const [chat, setChat, online, sockets, typing, setIsTyping] =
     useContext(SocketContext);
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    if (!selectedUser) return;
-    const formData = new FormData();
-    if (message) {
-      formData.append("message", message);
-    } else {
-      formData.append("message", "");
-    }
-    if (image) {
-      formData.append("image", image);
-    }
+ const handleSubmit = async (e) => {
+   e.preventDefault();
+   if (!selectedUser) return;
 
-    try {
-      setLoading(true);
-      const token = localStorage.getItem("token");
+   try {
+     setLoading(true);
+     const formData = new FormData();
+     const token = localStorage.getItem("token");
 
-      await handleSendMessage(selectedUser, formData, token);
+     if (file && file.type) {
+       // image / video upload
+       if (file.type.startsWith("video/")) {
+         formData.append("video", file || "");
+       } else if (file.type.startsWith("image/")) {
+         formData.append("image", file || "");
+       }
 
-      setMessage("");
-      setImage(null);
-      toast.success("Send message");
-    } catch (error) {
-      toast.error(error.message);
-    } finally {
-      setLoading(false);
-    }
-  };
+       await handleVideoUpload(selectedUser, formData, token);
+     } else {
+       // text message
+       formData.append("message", message || "");
+       await handleSendMessage(selectedUser, formData, token);
+     }
+
+     setMessage("");
+     setFile(null);
+     toast.success("Message sent");
+   } catch (error) {
+     toast.error(error.response?.data?.message || "Something went wrong");
+   } finally {
+     setLoading(false);
+   }
+ };
+
 
   // Typing indicator
   const handleTyping = (e) => {
@@ -106,7 +111,7 @@ const InputSend = ({ box }) => {
             <input
               type="file"
               name=""
-              onChange={(e) => setImage(e.target.files[0])}
+              onChange={(e) => setFile(e.target.files[0])}
               hidden
               id="file"
             />
@@ -124,7 +129,7 @@ const InputSend = ({ box }) => {
             <button
               // disabled={message.length === 0}
               className={`${
-                message || image
+                message || file
                   ? "disabled:cursor-default opacity-95"
                   : "disabled:cursor-not-allowed opacity-35"
               }  -rotate-12 send-btn `}

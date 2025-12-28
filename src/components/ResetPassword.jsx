@@ -2,7 +2,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { useState } from "react";
 import {Link} from "react-router-dom"
 import { handleResetPassword } from "../Api/api";
-import { toast } from "react-toastify";
+import { toast } from "react-hot-toast";
 import Loading from "./Loading";
 
 const ResetPassword = () => {
@@ -20,9 +20,9 @@ const ResetPassword = () => {
     setLoading(false);
   };
   return (
-    <div className="flex justify-center items-center pt-20">
-      <form onSubmit={handleSubmit} className="bg-white p-2 w-[30vw]">
-        <h2 className="font-semibold">
+    <div className="flex bg-white h-dvh justify-center  pt-40">
+      <form onSubmit={handleSubmit} className=" p-2 w-[100%]">
+        <h2 className="font-semibold text-[1.3rem] text-red-500 tracking-wide">
           {" "}
           <Link to={"/login"} >{"<-"}</Link> Reset Password
         </h2>
@@ -43,7 +43,7 @@ const ResetPassword = () => {
             border: "1px solid gray",
           }}
         />
-        <button className="bg-white text-blue-600  px-2 py-1  cursor-pointer" type="submit">
+        <button className="bg-blue-600 w-full  text-white  px-2 py-2 text-[1.1rem] tracking-wide mt-2 rounded-md  cursor-pointer" type="submit">
           {loading ? <Loading /> : "Reset Password"}
         </button>
       </form>

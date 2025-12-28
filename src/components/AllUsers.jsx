@@ -6,6 +6,7 @@ import User from "./User";
 import LeftTopNav from "./LeftTopNav";
 import { ThemeContext } from "../contextApi/Theme";
 import { Link } from "react-router-dom";
+import TabSection from "./TabSection";
 
 const AllUsers = () => {
   const [search, setSearch] = useState("");
@@ -34,9 +35,10 @@ const AllUsers = () => {
               <SearchUser setSearch={setSearch} />
             </div>
             <h1 className="px-2 tracking-wide font-semibold">Chats</h1>
-            <div className=" flex h-[61vh] overflow-y-scroll flex-col w-[100%] gap-2 px-1 py-2 ">
+            <div className=" flex h-[63vh] overflow-y-scroll flex-col w-[100%] gap-2 px-1 py-2 ">
               {filterUser?.map((user) => (
-                <Link to={""}
+                <Link
+                  to={""}
                   key={user?._id}
                   className={`${
                     selectedUser?._id === user._id ? "selected-user" : ""
@@ -46,6 +48,9 @@ const AllUsers = () => {
                   <User user={user} />
                 </Link>
               ))}
+            </div>
+            <div className="md:hidden block fixed bottom-0 left-0 right-0">
+              <TabSection />
             </div>
           </div>
         </div>

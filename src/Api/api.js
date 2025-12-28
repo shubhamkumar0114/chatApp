@@ -5,7 +5,7 @@ const API = axios.create({
   baseURL: "https://chat-backend-api-r9xu.onrender.com/api",
   withCredentials: true,
 });
-
+// https://chat-backend-api-r9xu.onrender.com
 // All Api Functions
 // Register Api
 export const register = async (data) => {
@@ -84,7 +84,7 @@ export const handleUpdateUser = async (authUser, formData) => {
 
 // SendMessage Api
 export const handleSendMessage = async (selectedUser, formData, token) => {
-  return await API.post(`/message/sender/${selectedUser._id}`, formData, {
+  await API.post(`/message/sender/${selectedUser._id}`, formData, {
     withCredentials: true,
     headers: {
       Authorization: `Bearer ${token}`,
@@ -132,20 +132,6 @@ export const handleResetPassword = async (password, token) => {
   );
 };
 
-// export const handleUploadFile = async (file , selectedUser , token) => {
-//   console.log(file);
-//   try {
-//     const res = await API.post(`/message/upload/${selectedUser?._id}`, file, {
-//       headers: {
-//         "Content-Type": "multipart/form-data", // VERY IMPORTANT
-//         Authorization: `Bearer ${token}`,
-//       },
-//     });
-//   } catch (error) {
-//     console.log(error);
-//   }
-// };
-
 // delete Msg api call
 
 export const handleDelete = async (msgId, token) => {
@@ -158,4 +144,16 @@ export const handleDelete = async (msgId, token) => {
     },
   });
   return res.data;
+};
+
+// video upload api
+export const handleVideoUpload = async (selectedUser, formData, token) => {
+  const res = await API.post(`/message/upload/${selectedUser?._id}`, formData, {
+    withCredentials: true,
+    headers: {
+      Authorization: `Bearer ${token}`,
+      "Content-Type": "multipart/form-data",
+    },
+  });
+  console.log(res);
 };
